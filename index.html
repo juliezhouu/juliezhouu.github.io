@@ -695,6 +695,80 @@
     <!-- content injected by JS -->
   </div>
 </div>
+
+<!-- Illustrations Gallery Modal -->
+<div id="galleryModal" class="gallery-modal" style="display: none;">
+  <div class="gallery-modal-content">
+    <div class="gallery-modal-header">
+      <h2>My Illustrations</h2>
+      <button class="gallery-modal-close" id="galleryModalClose">&times;</button>
+    </div>
+    <div class="gallery-modal-body">
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="images/d2.jpg" alt="Illustration 2">
+        </div>
+        <div class="gallery-item">
+          <img src="images/d3.jpg" alt="Illustration 3">
+        </div>
+        <div class="gallery-item">
+          <img src="images/d4.jpg" alt="Illustration 4">
+        </div>
+        <div class="gallery-item">
+          <img src="images/d5.jpg" alt="Illustration 5">
+        </div>
+        <div class="gallery-item">
+          <img src="images/d6.jpg" alt="Illustration 6">
+        </div>
+        <div class="gallery-item">
+          <img src="images/d1.png" alt="Illustration 1">
+        </div>
+        <div class="gallery-item tall">
+          <img src="images/d7.jpeg" alt="Illustration 7">
+        </div>
+        <div class="gallery-item tall">
+          <img src="images/d8.jpeg" alt="Illustration 8">
+        </div>
+        <div class="gallery-item tall">
+          <img src="images/d9.jpeg" alt="Illustration 9">
+        </div>
+        <div class="gallery-item tall">
+          <img src="images/d10.jpg" alt="Illustration 10">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Illustrations Gallery Script -->
+<script>
+  // Gallery modal functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const illustrationsBtn = document.querySelector('.aj-tile[aria-label="illustrations"]');
+    const galleryModal = document.getElementById('galleryModal');
+    const closeBtn = document.getElementById('galleryModalClose');
+    
+    if (illustrationsBtn && galleryModal) {
+      illustrationsBtn.addEventListener('click', function() {
+        galleryModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      });
+      
+      closeBtn.addEventListener('click', function() {
+        galleryModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      });
+      
+      // Close when clicking outside the modal content
+      galleryModal.addEventListener('click', function(e) {
+        if (e.target === galleryModal) {
+          galleryModal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      });
+    }
+  });
+</script>
 </body>
 
 </html>
