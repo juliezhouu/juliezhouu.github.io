@@ -515,14 +515,14 @@ document.addEventListener('click', function(e) {
 		return; // Don't show effect in these areas
 	}
 	
-	const images = ['images/pop.png', 'images/d1.png', 'images/cookies.png'];
+	const images = ['images/pop.png', 'images/d1.png', 'images/cookies.png', 'images/blue-star.png'];
 	const randomImage = images[Math.floor(Math.random() * images.length)];
 	
 	const img = document.createElement('img');
 	img.src = randomImage;
-	img.style.position = 'fixed';
-	img.style.left = e.clientX + 'px';
-	img.style.top = e.clientY + 'px';
+	img.style.position = 'absolute';
+	img.style.left = e.pageX + 'px';
+	img.style.top = e.pageY + 'px';
 	img.style.transform = 'translate(-50%, -50%)';
 	img.style.maxWidth = '80px';
 	img.style.maxHeight = '80px';
