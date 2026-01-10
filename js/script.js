@@ -503,3 +503,46 @@ document.addEventListener('click', function(e) {
 		target = target.parentElement;
 	}
 }, true); // Use capture phase to catch events early
+
+// Click effect - show image at click position
+document.addEventListener('click', function(e) {
+	// Check if click is within the biography card or footer
+	const ajCard = e.target.closest('.aj-card');
+	const footer = e.target.closest('#footer');
+	const footerBottom = e.target.closest('#footer-bottom');
+	
+	if (ajCard || footer || footerBottom) {
+		return; // Don't show effect in these areas
+	}
+	
+	const images = ['images/pop.png', 'images/d1.png', 'images/cookies.png'];
+	const randomImage = images[Math.floor(Math.random() * images.length)];
+	
+	const img = document.createElement('img');
+	img.src = randomImage;
+	img.style.position = 'fixed';
+	img.style.left = e.clientX + 'px';
+	img.style.top = e.clientY + 'px';
+	img.style.transform = 'translate(-50%, -50%)';
+	img.style.maxWidth = '80px';
+	img.style.maxHeight = '80px';
+	img.style.opacity = '0';
+	img.style.pointerEvents = 'none';
+	img.style.transition = 'opacity 0.2s ease-in-out';
+	img.style.zIndex = '9999';
+	
+	document.body.appendChild(img);
+	
+	// Fade in
+	setTimeout(() => {
+		img.style.opacity = '1';
+	}, 10);
+	
+	// Fade out and remove
+	setTimeout(() => {
+		img.style.opacity = '0';
+		setTimeout(() => {
+			document.body.removeChild(img);
+		}, 200);
+	}, 1500);
+});

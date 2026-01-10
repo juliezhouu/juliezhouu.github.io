@@ -2745,3 +2745,146 @@ button.filter-button:hover {
     font-size: 18px !important;
   }
 }
+
+/* Whimsical Divider Styles */
+.whimsical-divider {
+  position: relative;
+  padding: 60px 20px;
+  overflow: visible;
+  background: transparent;
+}
+
+.divider-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 40px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.cursor-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  animation: gentle-bounce 3s ease-in-out infinite;
+}
+
+.cursor-icon {
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
+  transform: rotate(-10deg);
+}
+
+.hint-text {
+  font-family: var(--body-font);
+  font-size: 12px;
+  color: var(--body-text-color);
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+  font-style: italic;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.dots-container {
+  position: relative;
+  flex: 1;
+  height: 80px;
+  width: 100%;
+}
+
+.dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: #2f2f2f;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.dot:nth-child(odd) {
+  width: 5px;
+  height: 5px;
+  opacity: 0.9;
+}
+
+.dot:nth-child(3n) {
+  width: 3px;
+  height: 3px;
+  opacity: 0.7;
+}
+
+.dot:nth-child(3n) {
+  width: 3px;
+  height: 3px;
+  opacity: 0.7;
+}
+
+.dots-trail circle {
+  animation: twinkle 2s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * 0.15s);
+}
+
+.dots-trail circle:nth-child(1) { --i: 0; }
+.dots-trail circle:nth-child(2) { --i: 1; }
+.dots-trail circle:nth-child(3) { --i: 2; }
+.dots-trail circle:nth-child(4) { --i: 3; }
+.dots-trail circle:nth-child(5) { --i: 4; }
+.dots-trail circle:nth-child(6) { --i: 5; }
+.dots-trail circle:nth-child(7) { --i: 6; }
+.dots-trail circle:nth-child(8) { --i: 7; }
+.dots-trail circle:nth-child(9) { --i: 8; }
+.dots-trail circle:nth-child(10) { --i: 9; }
+.dots-trail circle:nth-child(11) { --i: 10; }
+.dots-trail circle:nth-child(12) { --i: 11; }
+.dots-trail circle:nth-child(13) { --i: 12; }
+.dots-trail circle:nth-child(14) { --i: 13; }
+
+@keyframes gentle-bounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .whimsical-divider {
+    padding: 40px 20px;
+  }
+  
+  .divider-container {
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  .dots-container {
+    height: 60px;
+  }
+  
+  .cursor-icon {
+    width: 32px;
+    height: 40px;
+  }
+  
+  .hint-text {
+    font-size: 10px;
+  }
+}
