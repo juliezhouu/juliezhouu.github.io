@@ -1675,6 +1675,12 @@ button.filter-button:hover {
   max-width: 72%;
   height: auto;
   opacity: 0.98;
+  transition: content 0.3s ease-in-out;
+}
+
+#billboard.aurora-split-hero .aj-illu:hover {
+  content: url('images/hover.png');
+  cursor: pointer;
 }
 
 /* Put stars where they are in the reference */

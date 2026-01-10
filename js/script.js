@@ -197,7 +197,43 @@
 					} else if (idx === 1) {
 						content = '<p>Frimston kavooza, pip pip zibble: grobble-zoink, wuzzah?</p>';
 					} else {
-						content = '<p>Nerp! Glimmar boochoo. Yarp zendu flibberty gib — tok tok.</p>';
+					content = `
+						<div style="max-height: 60vh; overflow-y: auto; padding-right: 8px;">
+							<h3 style="margin-top: 0; margin-bottom: 20px; color: #333;">FAQ</h3>
+							<div style="margin-bottom: 20px;">
+								<p style="font-weight: 600; margin-bottom: 8px; color: #555;">Q: What kinds of projects do you usually work on?</p>
+								<p style="margin-left: 16px; color: #666;">A: Mostly web apps, dashboards, computer vision tools, and small games.</p>
+							</div>
+							<div style="margin-bottom: 20px;">
+								<p style="font-weight: 600; margin-bottom: 8px; color: #555;">Q: What programming languages and tools do you use?</p>
+								<p style="margin-left: 16px; color: #666;">A: I usually work with JavaScript, HTML, and CSS for front-end. I also use Python for scripting, data-related stuff, and bigger projects. I also use tools like React or Next.js for interfaces, and libraries like OpenCV for real-time input.</p>
+							</div>
+							<div style="margin-bottom: 20px;">
+								<p style="font-weight: 600; margin-bottom: 8px; color: #555;">Q: Are you more into front-end or back-end?</p>
+								<p style="margin-left: 16px; color: #666;">A: Definitely more front-end right now. I enjoy UI/UX, layout, interactions, and making things feel nice to use, but I'm building my back-end skills alongside that.</p>
+							</div>
+							<div style="margin-bottom: 20px;">
+								<p style="font-weight: 600; margin-bottom: 8px; color: #555;">Q: What roles are you looking for?</p>
+								<p style="margin-left: 16px; color: #666;">A: Software engineering and product or UI/UX roles. I like working on things where code and design come together and the end result actually feels good to use.</p>
+							</div>
+							<div style="margin-bottom: 20px;">
+								<p style="font-weight: 600; margin-bottom: 8px; color: #555;">Q: Do you work with data and machine learning?</p>
+								<p style="margin-left: 16px; color: #666;">A: Yes. I have worked on projects that analyze large datasets, build predictive models, and visualize trends. I really enjoy this!</p>
+							</div>
+							<div style="margin-bottom: 20px;">
+								<p style="font-weight: 600; margin-bottom: 8px; color: #555;">Q: What tools do you use for art and design?</p>
+								<p style="margin-left: 16px; color: #666;">A: I mostly draw digitally using an iPad with Procreate for designs. I also use Figma, Photoshop, and Illustrator depending on the project.</p>
+							</div>
+							<div style="margin-bottom: 20px;">
+								<p style="font-weight: 600; margin-bottom: 8px; color: #555;">Q: Do you take freelance or commission work?</p>
+								<p style="margin-left: 16px; color: #666;">A: Yes! I am open to commissions for illustration, design, and small software or web projects. My work email is: <a href="mailto:juliezhouxt@gmail.com" style="color: #007bff; text-decoration: none;">juliezhouxt@gmail.com</a>.</p>
+							</div>
+							<div style="margin-bottom: 20px;">
+								<p style="font-weight: 600; margin-bottom: 8px; color: #555;">Q: Are you open to learning new tools or languages?</p>
+								<p style="margin-left: 16px; color: #666;">A: Definitely! Most of my favorite projects started with me learning something new from scratch, and I enjoy that process a lot!</p>
+							</div>
+						</div>
+					`;
 					}
 					showModal(title, content);
 				});
@@ -331,7 +367,43 @@
  		 </p>`;
 }
 					else if (idx === 1) content = '<p>Frimston kavooza, pip pip zibble: grobble-zoink, wuzzah?</p>';
-					else content = '<p>Nerp! Glimmar boochoo. Yarp zendu flibberty gib — tok tok.</p>';
+				else content = `
+					<div style="max-height: 60vh; overflow-y: auto; padding-right: 12px; line-height: 1.6;">
+						<h3 style="margin-top: 0; margin-bottom: 24px; color: #8b5cf6; font-size: 24px; border-bottom: 2px solid #8b5cf6; padding-bottom: 8px;">Frequently Asked Questions</h3>
+						<div style="margin-bottom: 24px; padding-left: 12px; border-left: 3px solid #e9d5ff;">
+							<p style="font-weight: 700; margin-bottom: 10px; color: #8b5cf6; font-size: 16px;">Q: What kinds of projects do you usually work on?</p>
+							<p style="margin-left: 16px; color: #4a5568;">A: Mostly <strong>web apps</strong>, <strong>dashboards</strong>, <strong>computer vision tools</strong>, and <strong>small games</strong>.</p>
+						</div>
+						<div style="margin-bottom: 24px; padding-left: 12px; border-left: 3px solid #e9d5ff;">
+							<p style="font-weight: 700; margin-bottom: 10px; color: #8b5cf6; font-size: 16px;">Q: What programming languages and tools do you use?</p>
+							<p style="margin-left: 16px; color: #4a5568;">A: I usually work with <strong>JavaScript</strong>, <strong>HTML</strong>, and <strong>CSS</strong> for front-end. I also use <strong>Python</strong> for scripting, data-related stuff, and bigger projects. I also use tools like <strong>React</strong> or <strong>Next.js</strong> for interfaces, and libraries like <strong>OpenCV</strong> for real-time input.</p>
+						</div>
+						<div style="margin-bottom: 24px; padding-left: 12px; border-left: 3px solid #e9d5ff;">
+							<p style="font-weight: 700; margin-bottom: 10px; color: #8b5cf6; font-size: 16px;">Q: Are you more into front-end or back-end?</p>
+							<p style="margin-left: 16px; color: #4a5568;">A: Definitely more <strong>front-end</strong> right now. I enjoy <strong>UI/UX</strong>, layout, interactions, and making things feel nice to use, but I'm building my back-end skills alongside that.</p>
+						</div>
+						<div style="margin-bottom: 24px; padding-left: 12px; border-left: 3px solid #e9d5ff;">
+							<p style="font-weight: 700; margin-bottom: 10px; color: #8b5cf6; font-size: 16px;">Q: What roles are you looking for?</p>
+							<p style="margin-left: 16px; color: #4a5568;">A: <strong>Software engineering</strong> and <strong>product</strong> or <strong>UI/UX roles</strong>. I like working on things where code and design come together and the end result actually feels good to use.</p>
+						</div>
+						<div style="margin-bottom: 24px; padding-left: 12px; border-left: 3px solid #e9d5ff;">
+							<p style="font-weight: 700; margin-bottom: 10px; color: #8b5cf6; font-size: 16px;">Q: Do you work with data and machine learning?</p>
+							<p style="margin-left: 16px; color: #4a5568;">A: <strong>Yes</strong>. I have worked on projects that analyze <strong>large datasets</strong>, build <strong>predictive models</strong>, and visualize trends. I really enjoy this!</p>
+						</div>
+						<div style="margin-bottom: 24px; padding-left: 12px; border-left: 3px solid #e9d5ff;">
+							<p style="font-weight: 700; margin-bottom: 10px; color: #8b5cf6; font-size: 16px;">Q: What tools do you use for art and design?</p>
+							<p style="margin-left: 16px; color: #4a5568;">A: I mostly draw digitally using an <strong>iPad</strong> with <strong>Procreate</strong> for designs. I also use <strong>Figma</strong>, <strong>Photoshop</strong>, and <strong>Illustrator</strong> depending on the project.</p>
+						</div>
+						<div style="margin-bottom: 24px; padding-left: 12px; border-left: 3px solid #e9d5ff;">
+							<p style="font-weight: 700; margin-bottom: 10px; color: #8b5cf6; font-size: 16px;">Q: Do you take freelance or commission work?</p>
+							<p style="margin-left: 16px; color: #4a5568;">A: <strong>Yes!</strong> I am open to commissions for <strong>illustration</strong>, <strong>design</strong>, and small <strong>software</strong> or <strong>web projects</strong>. My work email is: <a href="mailto:juliezhouxt@gmail.com" style="color: #8b5cf6; text-decoration: none; font-weight: 600; border-bottom: 2px solid #e9d5ff;">juliezhouxt@gmail.com</a>.</p>
+						</div>
+						<div style="margin-bottom: 24px; padding-left: 12px; border-left: 3px solid #e9d5ff;">
+							<p style="font-weight: 700; margin-bottom: 10px; color: #8b5cf6; font-size: 16px;">Q: Are you open to learning new tools or languages?</p>
+							<p style="margin-left: 16px; color: #4a5568;">A: <strong>Definitely!</strong> Most of my favorite projects started with me learning something new from scratch, and I enjoy that process a lot!</p>
+						</div>
+					</div>
+				`;
 					showModal(title, content);
 				});
 			});
