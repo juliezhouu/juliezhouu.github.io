@@ -235,6 +235,35 @@
 			font-size: 0.95rem;
 		}
 
+		/* GitHub Button */
+		.github-btn {
+			display: inline-flex;
+			align-items: center;
+			gap: 10px;
+			background: #1F2937;
+			color: #ffffff;
+			padding: 12px 24px;
+			border-radius: 8px;
+			text-decoration: none;
+			font-weight: 600;
+			font-size: 0.95rem;
+			transition: all 0.3s ease;
+			margin-top: 20px;
+		}
+
+		.github-btn:hover {
+			background: #7C3AED;
+			transform: translateY(-2px);
+			box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+			color: #ffffff;
+		}
+
+		.github-btn svg {
+			width: 20px;
+			height: 20px;
+			fill: currentColor;
+		}
+
 		/* Animations */
 		@keyframes fadeInDown {
 			from {
@@ -311,6 +340,12 @@
 				<div class="project-title">
 					<h1>Bubble Aim Trainer</h1>
 					<p class="project-subtitle">An interactive web-based game designed to improve mouse precision, reaction time, and hand-eye coordination through dynamic bubble targets.</p>
+					<a href="https://github.com/juliezhouu/Bubble-Aim-Trainer" target="_blank" rel="noopener noreferrer" class="github-btn">
+						<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+							<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+						</svg>
+						View on GitHub
+					</a>
 				</div>
 
 				<div class="project-meta">
@@ -326,8 +361,10 @@
 						<span class="meta-label">Technologies</span>
 						<div class="tech-tags">
 							<span class="tag">JavaScript</span>
-							<span class="tag">HTML5</span>
+							<span class="tag">HTML5 Canvas</span>
 							<span class="tag">CSS3</span>
+							<span class="tag">Linear Regression</span>
+							<span class="tag">Statistical Analysis</span>
 						</div>
 					</div>
 				</div>
@@ -362,6 +399,43 @@
 						<div class="card-icon">🎨</div>
 						<h3 class="card-title">Clean Design</h3>
 						<p class="card-text">Minimalist UI with smooth animations and responsive design for an engaging user experience across all devices.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Technical Features -->
+			<div class="project-description" style="margin-top: 60px;">
+				<h2 class="section-title">Technical Highlights</h2>
+				<div class="description-grid">
+					<div class="description-card">
+						<div class="card-icon">🎮</div>
+						<h3 class="card-title">Canvas Animation Engine</h3>
+						<p class="card-text">Built custom 60 FPS game loop using HTML5 Canvas with real-time collision detection algorithms and particle systems—all in vanilla JavaScript without external libraries.</p>
+					</div>
+					<div class="description-card">
+						<div class="card-icon">🧮</div>
+						<h3 class="card-title">Mathematical Algorithms</h3>
+						<p class="card-text">Implemented linear regression for learning curve analysis and Pearson correlation to identify speed-accuracy tradeoffs in player performance patterns.</p>
+					</div>
+					<div class="description-card">
+						<div class="card-icon">📈</div>
+						<h3 class="card-title">Statistical Analysis</h3>
+						<p class="card-text">Real-time calculation of accuracy metrics, reaction times, consistency scores (using coefficient of variation), and fatigue detection through performance segmentation.</p>
+					</div>
+					<div class="description-card">
+						<div class="card-icon">⚡</div>
+						<h3 class="card-title">Performance Optimization</h3>
+						<p class="card-text">Efficient rendering pipeline maintaining smooth 60 FPS animations with dynamic visual effects and responsive gameplay across all screen sizes.</p>
+					</div>
+					<div class="description-card">
+						<div class="card-icon">🎯</div>
+						<h3 class="card-title">Collision Detection</h3>
+						<p class="card-text">Custom circular hit detection algorithms with precise coordinate tracking for spatial analysis and miss pattern heatmap generation.</p>
+					</div>
+					<div class="description-card">
+						<div class="card-icon">💾</div>
+						<h3 class="card-title">Data Collection System</h3>
+						<p class="card-text">Comprehensive event logging with timestamps, coordinates, and reaction times for every interaction, enabling deep performance insights and trend analysis.</p>
 					</div>
 				</div>
 			</div>
