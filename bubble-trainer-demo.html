@@ -23,51 +23,223 @@
 		rel="stylesheet">
 
 	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
 		body {
-			background: linear-gradient(135deg, #f8f9ff 0%, #f3e8ff 100%);
+			background: #FAFBFF;
 			min-height: 100vh;
 			position: relative;
 			overflow-x: hidden;
+			font-family: var(--body-font);
 		}
 
-		body::before {
-			content: '';
-			position: absolute;
-			top: -50%;
-			left: -50%;
-			width: 200%;
-			height: 200%;
-			background: radial-gradient(circle, rgba(124, 58, 237, 0.05) 1px, transparent 1px);
-			background-size: 30px 30px;
-			z-index: 0;
+		#header {
+			background: rgba(255, 255, 255, 0.95);
+			backdrop-filter: blur(10px);
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 1000;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 		}
 
 		.demo-section {
-			padding: 80px 20px;
+			padding: 140px 20px 80px;
 			min-height: 100vh;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
 			position: relative;
 			z-index: 1;
 		}
 
 		.demo-container {
-			max-width: 1200px;
+			max-width: 1100px;
 			margin: 0 auto;
 			width: 100%;
 		}
 
-		.demo-header {
-			text-align: center;
-			margin-bottom: 50px;
-			animation: fadeInDown 0.8s ease-out;
+		/* Project Header */
+		.project-header {
+			margin-bottom: 60px;
+			animation: fadeInDown 0.6s ease-out;
 		}
 
+		.breadcrumb {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			margin-bottom: 30px;
+			font-size: 0.95rem;
+		}
+
+		.breadcrumb a {
+			color: #7C3AED;
+			text-decoration: none;
+			transition: color 0.2s;
+		}
+
+		.breadcrumb a:hover {
+			color: #5B21B6;
+		}
+
+		.breadcrumb span {
+			color: #9CA3AF;
+		}
+
+		.project-title {
+			margin-bottom: 20px;
+		}
+
+		.project-title h1 {
+			color: #1F2937;
+			font-family: var(--heading-font);
+			font-size: 3rem;
+			font-weight: 800;
+			letter-spacing: -0.5px;
+			margin-bottom: 15px;
+			line-height: 1.2;
+		}
+
+		.project-subtitle {
+			color: #6B7280;
+			font-size: 1.25rem;
+			line-height: 1.6;
+			max-width: 700px;
+		}
+
+		/* Project Meta */
+		.project-meta {
+			display: flex;
+			gap: 40px;
+			flex-wrap: wrap;
+			margin-top: 30px;
+			padding: 25px 0;
+			border-top: 1px solid #E5E7EB;
+			border-bottom: 1px solid #E5E7EB;
+		}
+
+		.meta-item {
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+		}
+
+		.meta-label {
+			font-size: 0.85rem;
+			color: #9CA3AF;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			font-weight: 600;
+		}
+
+		.meta-value {
+			color: #1F2937;
+			font-size: 1rem;
+			font-weight: 600;
+		}
+
+		.tech-tags {
+			display: flex;
+			gap: 8px;
+			flex-wrap: wrap;
+		}
+
+		.tag {
+			background: #F3F4F6;
+			color: #6B7280;
+			padding: 5px 12px;
+			border-radius: 6px;
+			font-size: 0.9rem;
+			font-weight: 500;
+		}
+
+		/* Video Section */
+		.video-section {
+			margin-bottom: 50px;
+			animation: fadeInUp 0.6s ease-out 0.1s both;
+		}
+
+		.section-title {
+			font-size: 1.5rem;
+			color: #1F2937;
+			font-weight: 700;
+			margin-bottom: 20px;
+			font-family: var(--heading-font);
+		}
+
+		.video-wrapper {
+			background: #ffffff;
+			border-radius: 16px;
+			padding: 20px;
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+			transition: all 0.3s ease;
+		}
+
+		.video-wrapper:hover {
+			box-shadow: 0 8px 30px rgba(124, 58, 237, 0.12);
+		}
+
+		video {
+			width: 100%;
+			height: auto;
+			display: block;
+			border-radius: 12px;
+			background: #000;
+		}
+
+		/* Project Description */
+		.project-description {
+			animation: fadeInUp 0.6s ease-out 0.2s both;
+			margin-top: 50px;
+		}
+
+		.description-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 30px;
+			margin-top: 25px;
+		}
+
+		.description-card {
+			background: #ffffff;
+			padding: 30px;
+			border-radius: 12px;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+			transition: all 0.3s ease;
+		}
+
+		.description-card:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 8px 25px rgba(124, 58, 237, 0.1);
+		}
+
+		.card-icon {
+			font-size: 2rem;
+			margin-bottom: 15px;
+		}
+
+		.card-title {
+			font-size: 1.15rem;
+			color: #1F2937;
+			font-weight: 700;
+			margin-bottom: 10px;
+			font-family: var(--heading-font);
+		}
+
+		.card-text {
+			color: #6B7280;
+			line-height: 1.6;
+			font-size: 0.95rem;
+		}
+
+		/* Animations */
 		@keyframes fadeInDown {
 			from {
 				opacity: 0;
-				transform: translateY(-30px);
+				transform: translateY(-20px);
 			}
 			to {
 				opacity: 1;
@@ -78,7 +250,7 @@
 		@keyframes fadeInUp {
 			from {
 				opacity: 0;
-				transform: translateY(30px);
+				transform: translateY(20px);
 			}
 			to {
 				opacity: 1;
@@ -86,93 +258,27 @@
 			}
 		}
 
-		.demo-header h1 {
-			color: #5B21B6;
-			font-family: var(--heading-font);
-			font-size: 3.8rem;
-			margin-bottom: 20px;
-			font-weight: 800;
-			letter-spacing: -1px;
-			text-shadow: 2px 2px 4px rgba(124, 58, 237, 0.1);
-		}
+		/* Responsive */
+		@media (max-width: 768px) {
+			.demo-section {
+				padding: 120px 15px 60px;
+			}
 
-		.demo-header p {
-			color: #7C3AED;
-			font-size: 1.5rem;
-			margin-bottom: 25px;
-			font-weight: 500;
-		}
+			.project-title h1 {
+				font-size: 2.2rem;
+			}
 
-		.back-link {
-			display: inline-block;
-			color: #fff;
-			text-decoration: none;
-			font-weight: 600;
-			padding: 14px 30px;
-			background: linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%);
-			border-radius: 50px;
-			transition: all 0.3s ease;
-			font-size: 1.1rem;
-			box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
-		}
+			.project-subtitle {
+				font-size: 1.1rem;
+			}
 
-		.back-link:hover {
-			transform: translateY(-2px);
-			box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
-			color: #fff;
-		}
+			.project-meta {
+				gap: 25px;
+			}
 
-		.video-wrapper {
-			background: #ffffff;
-			border-radius: 30px;
-			padding: 30px;
-			box-shadow: 0 20px 60px rgba(91, 33, 182, 0.15),
-						0 0 0 1px rgba(124, 58, 237, 0.1);
-			backdrop-filter: blur(10px);
-			animation: fadeInUp 0.8s ease-out 0.2s both;
-			position: relative;
-		}
-
-		.video-wrapper::before {
-			content: '';
-			position: absolute;
-			top: -2px;
-			left: -2px;
-			right: -2px;
-			bottom: -2px;
-			background: linear-gradient(135deg, #7C3AED, #5B21B6, #C084FC);
-			border-radius: 30px;
-			z-index: -1;
-			opacity: 0;
-			transition: opacity 0.3s ease;
-		}
-
-		.video-wrapper:hover::before {
-			opacity: 0.1;
-		}
-
-		video {
-			width: 100%;
-			height: auto;
-			display: block;
-			border-radius: 20px;
-			background: #000;
-			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-		}
-
-		.video-info {
-			margin-top: 40px;
-			text-align: center;
-			color: #7C3AED;
-			animation: fadeInUp 0.8s ease-out 0.4s both;
-		}
-
-		.video-info p {
-			font-size: 1.3rem;
-			color: #7C3AED;
-			font-weight: 500;
-			line-height: 1.6;
-		}
+			.description-grid {
+				grid-template-columns: 1fr;
+			}
 		}
 	</style>
 </head>
@@ -185,7 +291,7 @@
 	</div>
 
 	<header id="header">
-		<div class="header-wrap" data-aos="zoom-in">
+		<div class="header-wrap">
 			<div class="main-logo">
 				<a href="index.html" class="site-logo" aria-label="Home">Julie Zhou</a>
 			</div>
@@ -194,21 +300,70 @@
 
 	<section class="demo-section">
 		<div class="demo-container">
-			<div class="demo-header">
-				<h1>Bubble Aim Trainer Demo</h1>
-				<p>Train Your Precision with Dynamic Targets</p>
-				<a href="index.html" class="back-link">← Back to Portfolio</a>
+			<!-- Project Header -->
+			<div class="project-header">
+				<div class="breadcrumb">
+					<a href="index.html">Portfolio</a>
+					<span>/</span>
+					<span>Bubble Aim Trainer</span>
+				</div>
+				
+				<div class="project-title">
+					<h1>Bubble Aim Trainer</h1>
+					<p class="project-subtitle">An interactive web-based game designed to improve mouse precision, reaction time, and hand-eye coordination through dynamic bubble targets.</p>
+				</div>
+
+				<div class="project-meta">
+					<div class="meta-item">
+						<span class="meta-label">Role</span>
+						<span class="meta-value">Developer & Designer</span>
+					</div>
+					<div class="meta-item">
+						<span class="meta-label">Year</span>
+						<span class="meta-value">2025</span>
+					</div>
+					<div class="meta-item">
+						<span class="meta-label">Technologies</span>
+						<div class="tech-tags">
+							<span class="tag">JavaScript</span>
+							<span class="tag">HTML5</span>
+							<span class="tag">CSS3</span>
+						</div>
+					</div>
+				</div>
 			</div>
 
-			<div class="video-wrapper">
-			<video id="demoVideo" autoplay loop playsinline preload="auto">
-				<source src="images/video1.mp4" type="video/mp4">
-				Your browser does not support the video tag.
-			</video>
-		</div>
+			<!-- Video Demo -->
+			<div class="video-section">
+				<h2 class="section-title">Demo Video</h2>
+				<div class="video-wrapper">
+					<video id="demoVideo" autoplay loop playsinline preload="auto">
+						<source src="images/video1.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</div>
+			</div>
 
-			<div class="video-info">
-				<p>Experience an interactive aim training game designed to improve precision and reaction time.</p>
+			<!-- Project Description -->
+			<div class="project-description">
+				<h2 class="section-title">Project Overview</h2>
+				<div class="description-grid">
+					<div class="description-card">
+						<div class="card-icon">🎯</div>
+						<h3 class="card-title">Interactive Gameplay</h3>
+						<p class="card-text">Dynamic bubble targets that challenge players to improve their clicking accuracy and speed with progressive difficulty levels.</p>
+					</div>
+					<div class="description-card">
+						<div class="card-icon">📊</div>
+						<h3 class="card-title">Performance Tracking</h3>
+						<p class="card-text">Real-time score tracking and statistics to monitor improvement over time and set personal benchmarks.</p>
+					</div>
+					<div class="description-card">
+						<div class="card-icon">🎨</div>
+						<h3 class="card-title">Clean Design</h3>
+						<p class="card-text">Minimalist UI with smooth animations and responsive design for an engaging user experience across all devices.</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -219,7 +374,6 @@
 		crossorigin="anonymous"></script>
 	<script src="js/plugins.js"></script>
 	<script src="js/script.js"></script>
-</body>
 	
 	<script>
 		// Disable click popup effect on this page
@@ -240,5 +394,6 @@
 			}
 		});
 	</script>
+</body>
 
 </html>
