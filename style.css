@@ -54,7 +54,7 @@
   --bs-secondary-rgb: 219, 203, 184;
 }
 
-/* ========== DARK MODE (Galaxy/Space) ========== */
+/*  DARK MODE */
 html[data-theme="dark"] {
   --accent-color: #8b9bff;
   --secondary-color: #3a3d7e;
@@ -89,7 +89,7 @@ html[data-theme="dark"] {
   --bs-secondary-rgb: 58, 61, 126;
 }
 
-/* Dark mode: galaxy starfield background */
+/* DARK MODE: galaxy starfield background */
 html[data-theme="dark"] body::before {
   content: "";
   position: fixed;
@@ -3118,7 +3118,7 @@ button.filter-button:hover {
 
   /* Main hero section improvements */
   #billboard.aurora-split-hero {
-    padding-top: 80px;
+    padding-top: 65px;
     padding-bottom: 20px;
   }
 
@@ -3150,6 +3150,8 @@ button.filter-button:hover {
     border-radius: 14px;
     margin-bottom: 12px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    position: relative;
+    z-index: 10;
   }
 
   html[data-theme="dark"] #billboard.aurora-split-hero .aj-left-top {
@@ -3180,40 +3182,30 @@ button.filter-button:hover {
     font-size: 12px;
   }
 
-  /* Left panel - very compact on mobile */
+  /* Left panel - very compact on mobile, just holds the buttons */
   #billboard.aurora-split-hero .aj-left {
-    min-height: 200px;
+    min-height: auto;
     margin-bottom: 10px;
     padding: 8px 12px;
+    overflow: hidden;
   }
 
-  /* Cloud button */
-  #billboard.aurora-split-hero .aj-cloud {
-    width: 50px;
-    height: 50px;
-    left: 12px;
-    top: 70px;
-  }
-
-  #billboard.aurora-split-hero .aj-cloud svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  /* Illustration */
-  #billboard.aurora-split-hero .aj-illu {
-    width: 240px;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -20px;
-  }
-
-  /* Stars */
+  /* Hide illustration, cloud, and stars on mobile so they don't block buttons */
+  #billboard.aurora-split-hero .aj-cloud,
   #billboard.aurora-split-hero .aj-stars {
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    top: 60px;
+    display: none;
+  }
+
+  /* Illustration - show small below buttons instead of overlapping */
+  #billboard.aurora-split-hero .aj-illu {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    display: block;
+    margin: 10px auto 0;
+    width: 180px;
+    max-width: 50%;
   }
 
   /* Right card improvements */
@@ -3382,7 +3374,7 @@ button.filter-button:hover {
 /* Extra small screens - 480px and below */
 @media only screen and (max-width: 480px) {
   #billboard.aurora-split-hero {
-    padding-top: 70px;
+    padding-top: 58px;
   }
 
   #billboard.aurora-split-hero .aj-left-top {
@@ -3404,23 +3396,13 @@ button.filter-button:hover {
   }
 
   #billboard.aurora-split-hero .aj-left {
-    min-height: 220px;
+    min-height: auto;
     padding: 8px;
   }
 
   #billboard.aurora-split-hero .aj-illu {
-    width: 200px;
-  }
-
-  #billboard.aurora-split-hero .aj-stars {
-    width: 100px;
-    top: 50px;
-  }
-
-  #billboard.aurora-split-hero .aj-cloud {
-    width: 44px;
-    height: 44px;
-    top: 50px;
+    width: 150px;
+    max-width: 45%;
   }
 
   #billboard.aurora-split-hero .aj-card-head {
