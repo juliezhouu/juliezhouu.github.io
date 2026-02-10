@@ -393,6 +393,82 @@
 				grid-template-columns: 1fr;
 			}
 		}
+
+		/* Dark mode overrides */
+		html[data-theme="dark"] body {
+			background: var(--page-bg, #141432);
+		}
+
+		html[data-theme="dark"] #header {
+			background: rgba(20, 20, 50, 0.95);
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+		}
+
+		html[data-theme="dark"] .breadcrumb span {
+			color: #8890b0;
+		}
+
+		html[data-theme="dark"] .project-title h1 {
+			color: #f0f0ff;
+		}
+
+		html[data-theme="dark"] .project-subtitle {
+			color: #a0a8c8;
+		}
+
+		html[data-theme="dark"] .meta-label {
+			color: #8890b0;
+		}
+
+		html[data-theme="dark"] .meta-value {
+			color: #e0e4f0;
+		}
+
+		html[data-theme="dark"] .tag {
+			background: #2a2d5a;
+			color: #b0b8d8;
+		}
+
+		html[data-theme="dark"] .section-title {
+			color: #f0f0ff;
+		}
+
+		html[data-theme="dark"] .video-wrapper {
+			background: #1e2050;
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+		}
+
+		html[data-theme="dark"] .description-card {
+			background: #1e2050;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+			border-left-color: #7b8cff;
+		}
+
+		html[data-theme="dark"] .description-card:hover {
+			box-shadow: 0 8px 25px rgba(123, 140, 255, 0.2);
+			border-left-color: #a78bfa;
+		}
+
+		html[data-theme="dark"] .card-title {
+			color: #e8ecff;
+		}
+
+		html[data-theme="dark"] .description-card:hover .card-title {
+			color: #a78bfa;
+		}
+
+		html[data-theme="dark"] .card-text {
+			color: #b0b8d8;
+		}
+
+		html[data-theme="dark"] .github-btn {
+			background: #2a2d5a;
+		}
+
+		html[data-theme="dark"] .project-meta {
+			border-top-color: #2a2d5a;
+			border-bottom-color: #2a2d5a;
+		}
 	</style>
 </head>
 
