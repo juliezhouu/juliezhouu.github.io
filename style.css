@@ -72,7 +72,7 @@ html[data-theme="dark"] {
   --page-bg-alt: #1a1a42;
   --card-bg: #1e2050;
   --card-bg-alt: #242660;
-  --hero-bg: #141432;
+  --hero-bg: #2b2b5d;
   --border-color: rgba(130,150,255,0.2);
   --dot-color: #8b9bff;
   --overlay-bg: #141432;
@@ -267,15 +267,21 @@ html[data-theme="dark"] #billboard.aurora-split-hero .aj-left {
 
 html[data-theme="dark"] #billboard.aurora-split-hero .aj-title {
   color: var(--heading-color);
+  text-shadow: 0 4px 12px rgba(139,155,255,0.25);
 }
 
-html[data-theme="dark"] .aj-bio-text p,
-html[data-theme="dark"] .aj-bio-text {
+html[data-theme="dark"] #billboard.aurora-split-hero .aj-bio-text p,
+html[data-theme="dark"] #billboard.aurora-split-hero .aj-bio-text {
   color: var(--body-text-color);
 }
 
+html[data-theme="dark"] #billboard.aurora-split-hero .aj-bio-text strong,
 html[data-theme="dark"] .aj-bio-text strong {
-  color: #a0b0ff;
+  color: #b0baff;
+}
+
+html[data-theme="dark"] #billboard.aurora-split-hero .aj-card-body {
+  background: var(--card-bg);
 }
 
 html[data-theme="dark"] .aj-tile {
@@ -370,6 +376,166 @@ html[data-theme="dark"] .aj-rail {
 
 html[data-theme="dark"] .aj-thumb {
   background: var(--aj-lav);
+}
+
+/* Dark mode: modal body text */
+html[data-theme="dark"] .aj-modal-body {
+  background: var(--card-bg-alt);
+  color: var(--body-text-color);
+}
+
+html[data-theme="dark"] .aj-modal-body h2 {
+  color: var(--heading-color);
+}
+
+html[data-theme="dark"] .aj-modal-body p {
+  color: var(--body-text-color);
+}
+
+html[data-theme="dark"] .aj-modal-body strong {
+  color: #d0d8ff;
+}
+
+/* Dark mode: gallery modal */
+html[data-theme="dark"] .gallery-modal-header h2 {
+  color: var(--heading-color);
+}
+
+html[data-theme="dark"] .gallery-modal-close {
+  color: #a0a8c8;
+}
+
+html[data-theme="dark"] .gallery-modal-close:hover {
+  color: #fff;
+}
+
+/* Dark mode: FAQ content inside modal */
+html[data-theme="dark"] .faq-heading {
+  color: var(--aj-lav);
+}
+
+html[data-theme="dark"] .faq-question {
+  color: var(--aj-lav);
+}
+
+html[data-theme="dark"] .faq-answer {
+  color: var(--body-text-color);
+}
+
+html[data-theme="dark"] .faq-link {
+  color: var(--aj-lav);
+}
+
+html[data-theme="dark"] .faq-block {
+  border-left-color: rgba(139,155,255,0.3);
+}
+
+/* Dark mode: section title variants */
+html[data-theme="dark"] .section-title.dark,
+html[data-theme="dark"] .section-title.grey {
+  color: var(--heading-color);
+}
+
+/* Dark mode: featured subtitle text */
+html[data-theme="dark"] .featured-subtitle {
+  color: var(--featured-subtitle-color);
+}
+
+/* Dark mode: cursor icon in whimsical divider */
+html[data-theme="dark"] .cursor-icon {
+  color: #a0a8d0;
+}
+
+/* Dark mode: contact form inputs */
+html[data-theme="dark"] .aj-contact-form input[type="email"],
+html[data-theme="dark"] .aj-contact-form textarea {
+  background: #1a1a42;
+  color: var(--body-text-color);
+  border-color: rgba(139,155,255,0.25);
+}
+
+html[data-theme="dark"] .aj-contact-form label {
+  color: var(--body-text-color);
+}
+
+html[data-theme="dark"] #ajContactCancel {
+  color: var(--body-text-color) !important;
+  border-color: rgba(139,155,255,0.2) !important;
+}
+
+/* Dark mode: about-me / info-box section */
+html[data-theme="dark"] #about-me {
+  background: var(--page-bg-alt);
+}
+
+html[data-theme="dark"] .info-box h3 {
+  color: var(--heading-color);
+}
+
+html[data-theme="dark"] .info-box p {
+  color: var(--body-text-color);
+}
+
+/* Dark mode: clients section */
+html[data-theme="dark"] #clients.bg-grey {
+  background: var(--page-bg-alt) !important;
+}
+
+html[data-theme="dark"] #clients .section-header h2 {
+  color: var(--heading-color);
+}
+
+/* Dark mode: general body text */
+html[data-theme="dark"] body {
+  color: var(--body-text-color);
+}
+
+html[data-theme="dark"] p {
+  color: var(--body-text-color);
+}
+
+html[data-theme="dark"] a:not(.text-white):not(.overlay-btn):not(.post-link):not(.nav__list-item a) {
+  color: var(--aj-lav);
+}
+
+html[data-theme="dark"] .btn-link {
+  color: var(--body-text-color) !important;
+}
+
+/* Dark mode: whimsical divider background */
+html[data-theme="dark"] .whimsical-divider {
+  background: var(--page-bg);
+}
+
+/* Dark mode: bg-grey sections (testimonials, clients) */
+html[data-theme="dark"] .bg-grey {
+  background: var(--page-bg-alt) !important;
+}
+
+/* Dark mode: testimonial cards */
+html[data-theme="dark"] .testimonials-inner,
+html[data-theme="dark"] .card.testimonials-inner {
+  background: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+html[data-theme="dark"] .card-text {
+  color: var(--body-text-color);
+}
+
+html[data-theme="dark"] .testimonial-author .name {
+  color: var(--heading-color);
+}
+
+/* Dark mode: section header display-5 headings */
+html[data-theme="dark"] .display-5 {
+  color: var(--heading-color) !important;
+}
+
+/* Dark mode: Recent Projects portfolio grid items */
+html[data-theme="dark"] .portfolio-item figcaption h3,
+html[data-theme="dark"] .portfolio-item figcaption a {
+  color: var(--heading-color);
 }
 
 /* Fonts */
@@ -2776,6 +2942,16 @@ button.filter-button:hover {
   text-align: center;
 }
 
+/* FAQ content styles (light mode defaults) */
+.faq-heading { color: #8b5cf6; }
+.faq-question { color: #8b5cf6; }
+.faq-answer { color: #4a5568; }
+.faq-link { color: #8b5cf6; border-bottom: 2px solid #e9d5ff; }
+.faq-block { border-left: 3px solid #e9d5ff; }
+
+/* Featured subtitle (replaces .text-black-50) */
+.featured-subtitle { color: rgba(0,0,0,0.5); }
+
 /* Contact form inside modal */
 .aj-contact-form label { display:block; text-align:left; margin-bottom:6px; font-weight:600; }
 .aj-contact-form input[type="email"], .aj-contact-form textarea {
@@ -2931,56 +3107,86 @@ button.filter-button:hover {
   #header {
     height: var(--header-height-min);
   }
-  
+
   .header-wrap {
     padding: 12px 16px;
   }
-  
+
   .site-logo {
     font-size: 20px !important;
   }
-  
+
   /* Main hero section improvements */
   #billboard.aurora-split-hero {
-    padding-top: 100px;
-    padding-bottom: 30px;
+    padding-top: 80px;
+    padding-bottom: 20px;
   }
-  
+
   #billboard.aurora-split-hero .container-lg {
     padding-left: 12px;
     padding-right: 12px;
   }
-  
-  /* Stack columns vertically on mobile */
+
+  /* Stack columns vertically on mobile, card first */
   #billboard.aurora-split-hero .row {
     flex-direction: column;
   }
-  
-  /* Left panel - make it smaller and more compact */
-  #billboard.aurora-split-hero .aj-left {
-    min-height: 300px;
-    margin-bottom: 20px;
-    padding: 12px;
+
+  /* Left panel stays first so buttons are at top */
+  #billboard.aurora-split-hero .col-lg-6:first-child {
+    order: 1;
   }
-  
-  /* Mini navigation - make it wrap and stack */
-  #billboard.aurora-split-hero .aj-mini-nav {
-    flex-wrap: wrap;
-    gap: 12px;
+  #billboard.aurora-split-hero .col-lg-6:last-child {
+    order: 2;
+  }
+
+  /* Mini nav becomes a prominent bar near the top */
+  #billboard.aurora-split-hero .aj-left-top {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 10px 12px;
     justify-content: center;
-    padding: 8px 4px;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   }
-  
+
+  html[data-theme="dark"] #billboard.aurora-split-hero .aj-left-top {
+    background: rgba(30,32,80,0.85);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  }
+
+  /* Mini navigation - compact row */
+  #billboard.aurora-split-hero .aj-mini-nav {
+    flex-wrap: nowrap;
+    gap: 8px;
+    justify-content: center;
+    padding: 0;
+  }
+
   #billboard.aurora-split-hero .aj-mini-nav a {
-    font-size: 13px;
-    padding: 6px 8px;
+    font-size: 12px;
+    padding: 6px 10px;
+    white-space: nowrap;
   }
-  
+
+  .theme-toggle-btn.theme-active {
+    padding: 4px 8px !important;
+  }
+
   #billboard.aurora-split-hero .aj-mini-btn {
-    padding: 8px 16px;
-    font-size: 13px;
+    padding: 6px 14px;
+    font-size: 12px;
   }
-  
+
+  /* Left panel - very compact on mobile */
+  #billboard.aurora-split-hero .aj-left {
+    min-height: 200px;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+  }
+
   /* Cloud button */
   #billboard.aurora-split-hero .aj-cloud {
     width: 50px;
@@ -2988,63 +3194,63 @@ button.filter-button:hover {
     left: 12px;
     top: 70px;
   }
-  
+
   #billboard.aurora-split-hero .aj-cloud svg {
     width: 20px;
     height: 20px;
   }
-  
+
   /* Illustration */
   #billboard.aurora-split-hero .aj-illu {
-    width: 280px;
+    width: 240px;
     left: 50%;
     transform: translateX(-50%);
     bottom: -20px;
   }
-  
+
   /* Stars */
   #billboard.aurora-split-hero .aj-stars {
     left: 50%;
     transform: translateX(-50%);
-    width: 140px;
-    top: 80px;
+    width: 120px;
+    top: 60px;
   }
-  
+
   /* Right card improvements */
   #billboard.aurora-split-hero .aj-card {
     min-height: auto;
-    margin-top: 20px;
+    margin-top: 10px;
   }
-  
+
   #billboard.aurora-split-hero .aj-card-head {
-    height: 160px;
+    height: 140px;
   }
-  
+
   /* Name/title */
   #billboard.aurora-split-hero .aj-name {
-    top: 20px;
+    top: 16px;
   }
-  
+
   #billboard.aurora-split-hero .aj-name-img {
-    height: 90px;
+    height: 80px;
   }
-  
+
   /* Card body */
   #billboard.aurora-split-hero .aj-card-body {
     padding: 16px 20px 20px 20px;
   }
-  
+
   /* Biography title */
   #billboard.aurora-split-hero .aj-title {
-    font-size: 26px;
+    font-size: 24px;
   }
-  
+
   /* Bio text */
   #billboard.aurora-split-hero .aj-bio {
     grid-template-columns: 1fr;
     gap: 10px;
   }
-  
+
   #billboard.aurora-split-hero .aj-bio-text {
     height: auto;
     max-height: 200px;
@@ -3052,68 +3258,121 @@ button.filter-button:hover {
     line-height: 1.5;
     padding-right: 8px;
   }
-  
+
   #billboard.aurora-split-hero .aj-rail {
     display: none;
   }
-  
-  /* Tiles - make them stack vertically */
+
+  /* Tiles - horizontal row on mobile */
   #billboard.aurora-split-hero .aj-tiles {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
     margin-top: 16px;
   }
-  
+
   #billboard.aurora-split-hero .aj-tile {
-    height: 60px;
-    font-size: 15px;
+    height: 52px;
+    font-size: 14px;
   }
-  
+
   /* Hide protruding tab on mobile */
   #billboard.aurora-split-hero .aj-card::before {
     display: none;
   }
-  
+
+  /* Featured projects - make overlay always visible on touch */
+  #post-grid .project-overlay {
+    opacity: 1;
+    pointer-events: auto;
+    background: rgba(15, 15, 35, 0.85);
+    padding: 16px;
+  }
+
+  #post-grid .project-overlay .overlay-title {
+    font-size: 1em;
+    margin-bottom: 6px;
+  }
+
+  #post-grid .project-overlay .overlay-desc {
+    font-size: 0.78em;
+    margin-bottom: 10px;
+    max-width: none;
+  }
+
+  #post-grid .project-overlay .overlay-btn {
+    padding: 6px 14px;
+    font-size: 0.78em;
+  }
+
+  /* Featured carousel nav on mobile */
+  #post-grid .featured-nav {
+    margin-bottom: 16px;
+  }
+
+  #post-grid .featured-carousel-prev,
+  #post-grid .featured-carousel-next {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  /* Section headings smaller on mobile */
+  .display-5 {
+    font-size: 1.8rem !important;
+  }
+
+  /* About me section */
+  #about-me .info-box {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* Reduce section padding on mobile */
+  .padding-large {
+    padding-top: 4em;
+    padding-bottom: 4em;
+  }
+
   /* Footer adjustments */
   #footer-bottom {
     padding: 16px 0;
   }
-  
+
   #footer-bottom .row {
     flex-direction: column;
     gap: 16px;
   }
-  
+
   .social-links ul {
     justify-content: center !important;
     gap: 12px;
   }
-  
+
   .copyright {
     text-align: center !important;
   }
-  
+
   /* Gallery modal improvements */
   .gallery-modal-content {
     width: 95%;
     max-height: 90vh;
     margin: 20px;
   }
-  
+
   .gallery-modal-header {
     padding: 12px;
   }
-  
+
   .gallery-modal-header h2 {
     font-size: 20px;
   }
-  
+
   .gallery-grid {
     grid-template-columns: 1fr;
     gap: 12px;
     padding: 12px;
   }
-  
+
   .gallery-item img,
   .gallery-item.tall img {
     height: 250px;
@@ -3123,67 +3382,90 @@ button.filter-button:hover {
 /* Extra small screens - 480px and below */
 @media only screen and (max-width: 480px) {
   #billboard.aurora-split-hero {
-    padding-top: 90px;
+    padding-top: 70px;
   }
-  
-  #billboard.aurora-split-hero .aj-left {
-    min-height: 250px;
-    padding: 8px;
+
+  #billboard.aurora-split-hero .aj-left-top {
+    padding: 8px 8px;
   }
-  
+
   #billboard.aurora-split-hero .aj-mini-nav {
-    gap: 8px;
+    gap: 4px;
   }
-  
+
   #billboard.aurora-split-hero .aj-mini-nav a {
-    font-size: 11px;
+    font-size: 10px;
     padding: 5px 6px;
   }
-  
+
   #billboard.aurora-split-hero .aj-mini-btn {
-    padding: 6px 12px;
-    font-size: 11px;
+    padding: 5px 10px;
+    font-size: 10px;
   }
-  
+
+  #billboard.aurora-split-hero .aj-left {
+    min-height: 220px;
+    padding: 8px;
+  }
+
   #billboard.aurora-split-hero .aj-illu {
-    width: 220px;
+    width: 200px;
   }
-  
+
   #billboard.aurora-split-hero .aj-stars {
-    width: 110px;
-    top: 70px;
+    width: 100px;
+    top: 50px;
   }
-  
+
   #billboard.aurora-split-hero .aj-cloud {
     width: 44px;
     height: 44px;
-    top: 60px;
+    top: 50px;
   }
-  
+
+  #billboard.aurora-split-hero .aj-card-head {
+    height: 120px;
+  }
+
   #billboard.aurora-split-hero .aj-name-img {
-    height: 70px;
+    height: 65px;
   }
-  
+
   #billboard.aurora-split-hero .aj-title {
-    font-size: 22px;
+    font-size: 20px;
   }
-  
+
   #billboard.aurora-split-hero .aj-bio-text {
     font-size: 13px;
-    max-height: 180px;
+    max-height: 160px;
   }
-  
+
+  #billboard.aurora-split-hero .aj-tiles {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
   #billboard.aurora-split-hero .aj-tile {
-    height: 52px;
-    font-size: 14px;
+    height: 48px;
+    font-size: 13px;
   }
-  
+
   #billboard.aurora-split-hero .aj-card-body {
     padding: 12px 16px 16px 16px;
   }
-  
+
   .site-logo {
     font-size: 18px !important;
+  }
+
+  .display-5 {
+    font-size: 1.5rem !important;
+  }
+
+  /* Featured project overlay text smaller */
+  #post-grid .project-overlay .overlay-desc {
+    font-size: 0.72em;
+    line-height: 1.4;
   }
 }
 
