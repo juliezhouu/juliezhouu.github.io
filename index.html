@@ -74,9 +74,9 @@
 				<div class="aj-left" data-aos="zoom-in" data-aos-delay="200">
 					<div class="aj-left-top">
 						<div class="aj-mini-nav">
-						<a href="#">☀️ Light Mode</a>
-						<a href="#">🌙 Dark Mode</a>
-						<a href="#">☄️ Meteor Shower</a>
+						<a href="#" id="themeLight" class="theme-toggle-btn">☀️ Light Mode</a>
+						<a href="#" id="themeDark" class="theme-toggle-btn">🌙 Dark Mode</a>
+						<a href="#" id="meteorBtn">☄️ Meteor Shower</a>
 							<a href="#contact" class="aj-mini-btn">Contact</a>
 						</div>
 					</div>
@@ -500,7 +500,7 @@
 		</div>
 	</section>
 <!-- playful divider -->
-<section class="whimsical-divider">
+<section class="whimsical-divider" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="100">
 	<div class="divider-container">
 		<div class="cursor-hint">
 			<svg class="cursor-icon" width="40" height="50" viewBox="0 0 40 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -537,81 +537,167 @@
 	<section id="post-grid" class="padding-large">
 		<div class="container-lg">
 			<div class="row">
-				<div class="section-header align-center mb-5">
+				<div class="section-header align-center mb-5" data-aos="fade-up" data-aos-duration="800">
 					<h2 class="display-5 m-0">Featured Projects</h2>
 					<span class="text-black-50"> here are some projects i've worked on!</span>
 				</div>
 			</div>
 		</div>
-		<div class="container-lg">
-			<div class="row">
-				<div class="col-4" data-aos="zoom-in-up" data-aos-delay="300">
-					<figure class="post-item">
-					<a href="posturepal-demo.html" class="post-link"><img src="images/thumb-1.jpg" alt="post"></a>
-					<figcaption class="py-4">
-						<div class="meta-wrap text-white">
-							<span class="meta-category">PosturePal</span> /
-						<span class="meta-date">Web Development</span>
-						</div>
-						<h3>
-							<a href="posturepal-demo.html" class="text-white">Monitor and Improve Your Posture Instantly</a>
-					</figure>
-				</div>
-
-				<div class="col-4" data-aos="zoom-in-up" data-aos-delay="600">
-					<figure class="post-item">
-					<a href="bubble-trainer-demo.html" class="post-link"><img src="images/thumb-2.jpg" alt="post"></a>
-					<figcaption class="py-4">
-						<div class="meta-wrap text-white">
-							<span class="meta-category">Bubble Aim Trainer</span> /
-						<span class="meta-date">Web Development</span>
-						</div>
-						<h3>
-							<a href="bubble-trainer-demo.html" class="text-white">Train Your Precision with Dynamic Targets</a>
-					</figure>
-				</div>
-
-				<div class="col-4" data-aos="zoom-in-up" data-aos-delay="900">
-				<figure class="post-item">
-				<a href="redesign.html" class="post-link"><img src="images/thumb-4.jpg" alt="post"></a>
-				<figcaption class="py-4">
-					<div class="meta-wrap text-white">
-						<span class="meta-category">Studio Tax Redesign</span> /
-					<span class="meta-date">UI/UX Design</span>
-					</div>
-					<h3>
-						<a href="redesign.html" class="text-white">Case Study: Making Tax Filing Less Painful</a>
-						</h3>
-					</figcaption>
-				</figure>
+			<div class="container-lg">
+			<!-- Navigation buttons -->
+			<div class="featured-nav" data-aos="fade-up">
+				<div class="featured-carousel-prev">&larr;</div>
+				<div class="featured-carousel-next">&rarr;</div>
 			</div>
-			<div class="col-4" data-aos="zoom-in-up" data-aos-delay="1200">
-					<figure class="post-item">
-					<a href="https://github.com/juliezhouu/Female-Cardio-Data-Analysis" target="_blank" class="post-link"><img src="images/thumb-3.jpg" alt="post"></a>
-					<figcaption class="py-4">
-						<div class="meta-wrap text-white">
-							<span class="meta-category">Cardio Data Analysis</span> /
-						<span class="meta-date">Data Analysis</span>
-						</div>
-						<h3>
-							<a href="https://github.com/juliezhouu/Female-Cardio-Data-Analysis" target="_blank" class="text-white">Unlocking Insights from Female Workout Data</a>
-							</h3>
-						</figcaption>
-					</figure>				</div>
-			<div class="col-4" data-aos="zoom-in-up" data-aos-delay="1500">
-					<figure class="post-item">
-					<a href="bmo-casestudy.html" class="post-link"><img src="images/thumb-5.png" alt="post"></a>
-					<figcaption class="py-4">
-						<div class="meta-wrap text-white">
-							<span class="meta-category">BMO Banking App</span> /
-						<span class="meta-date">UI/UX Design</span>
-						</div>
-						<h3>
-							<a href="bmo-casestudy.html" class="text-white">Case Study: Redesigning Mobile Banking</a>
-							</h3>
-						</figcaption>
-					</figure>
-				</div>			</div>
+
+			<div class="featured-carousel swiper" data-aos="zoom-in-up" data-aos-delay="200">
+				<div class="swiper-wrapper">
+
+					<!-- BloomCart (Featured) -->
+					<div class="swiper-slide">
+						<figure class="post-item">
+							<a href="https://devpost.com/software/bloomcart-elzhxq?ref_content=my-projects-tab&ref_feature=my_projects" target="_blank" class="post-link">
+								<img src="images/bloomcart-thumbnail.png" alt="BloomCart" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+								<span class="post-item-placeholder" style="display:none;"></span>
+							</a>
+							<figcaption class="py-4">
+								<div class="meta-wrap text-white">
+									<span class="meta-category">BloomCart</span> /
+									<span class="meta-date">Hackathon Project</span>
+								</div>
+								<h3><a href="#" class="text-white">Sustainable Shopping Made Beautiful</a></h3>
+							</figcaption>
+							<div class="project-overlay">
+								<h4 class="overlay-title">BloomCart</h4>
+								<p class="overlay-desc">A Chrome extension that gamifies sustainable shopping on Amazon. It grades products by environmental impact and grows a virtual plant based on your choices.</p>
+								<a href="https://devpost.com/software/bloomcart-elzhxq?ref_content=my-projects-tab&ref_feature=my_projects" target="_blank" class="overlay-btn">View on Devpost</a>
+								<a href="https://www.canva.com/design/DAHACY4Pkis/XXb4mNdF_46T0Ahojt8IlQ/edit?utm_content=DAHACY4Pkis&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" class="overlay-btn">View Slides</a>
+							</div>
+						</figure>
+					</div>
+
+					<!-- PosturePal -->
+					<div class="swiper-slide">
+						<figure class="post-item">
+							<a href="posturepal-demo.html" class="post-link"><img src="images/thumb-1.jpg" alt="PosturePal"></a>
+							<figcaption class="py-4">
+								<div class="meta-wrap text-white">
+									<span class="meta-category">PosturePal</span> /
+									<span class="meta-date">Web Development</span>
+								</div>
+								<h3><a href="#" class="text-white">Real-Time Posture Monitoring</a></h3>
+							</figcaption>
+							<div class="project-overlay">
+								<h4 class="overlay-title">PosturePal</h4>
+								<p class="overlay-desc">Monitors your posture through your webcam using pose detection and gives you gentle nudges when you're slouching. Built with Python and MediaPipe.</p>
+								<a href="posturepal-demo.html" class="overlay-btn">View Project</a>
+							</div>
+						</figure>
+					</div>
+
+					<!-- Bubble Aim Trainer -->
+					<div class="swiper-slide">
+						<figure class="post-item">
+							<a href="bubble-trainer-demo.html" class="post-link"><img src="images/thumb-2.jpg" alt="Bubble Aim Trainer"></a>
+							<figcaption class="py-4">
+								<div class="meta-wrap text-white">
+									<span class="meta-category">Bubble Aim Trainer</span> /
+									<span class="meta-date">Web Development</span>
+								</div>
+								<h3><a href="#" class="text-white">Click Fast, Aim Better</a></h3>
+							</figcaption>
+							<div class="project-overlay">
+								<h4 class="overlay-title">Bubble Aim Trainer</h4>
+								<p class="overlay-desc">A fun little game to train your mouse accuracy and reaction time. Tracks your stats with charts and regression analysis. Pure vanilla JS, no libraries!</p>
+								<a href="bubble-trainer-demo.html" class="overlay-btn">View Project</a>
+							</div>
+						</figure>
+					</div>
+
+					<!-- Studio Tax Redesign -->
+					<div class="swiper-slide">
+						<figure class="post-item">
+							<a href="redesign.html" class="post-link"><img src="images/thumb-4.jpg" alt="Studio Tax Redesign"></a>
+							<figcaption class="py-4">
+								<div class="meta-wrap text-white">
+									<span class="meta-category">Studio Tax Redesign</span> /
+									<span class="meta-date">UI/UX Design</span>
+								</div>
+								<h3><a href="#" class="text-white">Making Taxes Less Painful</a></h3>
+							</figcaption>
+							<div class="project-overlay">
+								<h4 class="overlay-title">Studio Tax Redesign</h4>
+								<p class="overlay-desc">A UI/UX case study where I redesigned StudioTax's confusing interface into something people can actually use without wanting to cry.</p>
+								<a href="redesign.html" class="overlay-btn">View Case Study</a>
+							</div>
+						</figure>
+					</div>
+
+					<!-- HTN Frontend Challenge (Featured) -->
+					<div class="swiper-slide">
+						<figure class="post-item">
+							<a href="http://julie-zhou.com/htn-frontend-challenge/" target="_blank" class="post-link">
+								<img src="images/thumbnail-htn.jpg" alt="HTN Frontend Challenge" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+								<span class="post-item-placeholder" style="display:none;"></span>
+							</a>
+							<figcaption class="py-4">
+								<div class="meta-wrap text-white">
+									<span class="meta-category">HTN Frontend Challenge</span> /
+									<span class="meta-date">Frontend Development</span>
+								</div>
+								<h3><a href="#" class="text-white">Hack the North Event Platform</a></h3>
+							</figcaption>
+							<div class="project-overlay">
+								<h4 class="overlay-title">HTN Frontend Challenge</h4>
+								<p class="overlay-desc">A frontend developer design challenge for Hack the North. Built a responsive event browsing platform with search and filtering.</p>
+								<a href="http://julie-zhou.com/htn-frontend-challenge/" target="_blank" class="overlay-btn">View Live Site</a>
+							</div>
+						</figure>
+					</div>
+
+					<!-- Cardio Data Analysis -->
+					<div class="swiper-slide">
+						<figure class="post-item">
+							<a href="https://github.com/juliezhouu/Female-Cardio-Data-Analysis" target="_blank" class="post-link"><img src="images/thumb-3.jpg" alt="Cardio Data Analysis"></a>
+							<figcaption class="py-4">
+								<div class="meta-wrap text-white">
+									<span class="meta-category">Cardio Data Analysis</span> /
+									<span class="meta-date">Data Analysis</span>
+								</div>
+								<h3><a href="#" class="text-white">Workout Data Deep Dive</a></h3>
+							</figcaption>
+							<div class="project-overlay">
+								<h4 class="overlay-title">Cardio Data Analysis</h4>
+								<p class="overlay-desc">Analyzed a dataset of female cardio workouts to find patterns in heart rate, calories burned, and workout duration. Lots of charts and pandas!</p>
+								<a href="https://github.com/juliezhouu/Female-Cardio-Data-Analysis" target="_blank" class="overlay-btn">View on GitHub</a>
+							</div>
+						</figure>
+					</div>
+
+					<!-- BMO Banking App -->
+					<div class="swiper-slide">
+						<figure class="post-item">
+							<a href="bmo-casestudy.html" class="post-link"><img src="images/thumb-5.png" alt="BMO Banking App"></a>
+							<figcaption class="py-4">
+								<div class="meta-wrap text-white">
+									<span class="meta-category">BMO Banking App</span> /
+									<span class="meta-date">UI/UX Design</span>
+								</div>
+								<h3><a href="#" class="text-white">Rethinking Mobile Banking</a></h3>
+							</figcaption>
+							<div class="project-overlay">
+								<h4 class="overlay-title">BMO Banking App</h4>
+								<p class="overlay-desc">Redesigned the BMO mobile banking experience with a focus on making everyday tasks like transfers and bill pay way more intuitive.</p>
+								<a href="bmo-casestudy.html" class="overlay-btn">View Case Study</a>
+							</div>
+						</figure>
+					</div>
+
+				</div><!-- /swiper-wrapper -->
+			</div><!-- /featured-carousel -->
+
+			<!-- Pagination dots -->
+			<div class="featured-pagination swiper-pagination" style="margin-top: 20px;"></div>
 		</div>
 	</section>
 
@@ -646,7 +732,7 @@
 		</div>
 	</section>
 
-	<footer id="footer" class="padding-large bg-primary">
+	<footer id="footer" class="padding-large bg-primary" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50">
 		<div class="container-lg text-white">
 			<div class="row">
 				<div class="footer-menu col-md-4">

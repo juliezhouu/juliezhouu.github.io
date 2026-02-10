@@ -39,8 +39,337 @@
   --bg-text-color: #f1f1f1;
   --dark-text-color: #2f2f2f;
 
+  --page-bg: #ffffff;
+  --page-bg-alt: #fef9f0;
+  --card-bg: #f7f7fb;
+  --card-bg-alt: #fffaf0;
+  --hero-bg: #ffffff;
+  --border-color: rgba(0,0,0,0.1);
+  --dot-color: #2f2f2f;
+  --overlay-bg: #fff;
+  --featured-subtitle-color: rgba(0,0,0,0.5);
+  --site-logo-color: #111;
+
   --bs-primary-rgb: 160, 172, 255;
   --bs-secondary-rgb: 219, 203, 184;
+}
+
+/* ========== DARK MODE (Galaxy/Space) ========== */
+html[data-theme="dark"] {
+  --accent-color: #8b9bff;
+  --secondary-color: #3a3d7e;
+  --dark-color: #e8e8f8;
+  --grey-color: #1e2045;
+  --heading-color: #f4f4ff;
+  --body-text-color: #c0c8e0;
+  --light-heading-color: #ffffff;
+  --light-background-color: #141432;
+  --light-text-color: #9098b8;
+  --bg-text-color: #1a1a3a;
+  --dark-text-color: #ececff;
+
+  --page-bg: #141432;
+  --page-bg-alt: #1a1a42;
+  --card-bg: #1e2050;
+  --card-bg-alt: #242660;
+  --hero-bg: #141432;
+  --border-color: rgba(130,150,255,0.2);
+  --dot-color: #8b9bff;
+  --overlay-bg: #141432;
+  --featured-subtitle-color: rgba(200,200,255,0.7);
+  --site-logo-color: #e0e0ff;
+
+  --aj-lav: #8b9bff;
+  --aj-lav2: #7a8aff;
+  --aj-lav3: #252560;
+  --aj-shadow: 0 12px 28px rgba(10, 10, 40, 0.5);
+  --aj-shadow-soft: 0 10px 22px rgba(10, 10, 40, 0.35);
+
+  --bs-primary-rgb: 139, 155, 255;
+  --bs-secondary-rgb: 58, 61, 126;
+}
+
+/* Dark mode: galaxy starfield background */
+html[data-theme="dark"] body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    /* Nebula glow effects */
+    radial-gradient(ellipse 600px 400px at 20% 30%, rgba(100,80,200,0.12), transparent),
+    radial-gradient(ellipse 500px 350px at 75% 60%, rgba(60,100,220,0.10), transparent),
+    radial-gradient(ellipse 400px 300px at 50% 80%, rgba(130,80,180,0.08), transparent),
+    /* Bright stars */
+    radial-gradient(2px 2px at 8% 15%, rgba(220,225,255,0.9), transparent),
+    radial-gradient(2.5px 2.5px at 92% 8%, rgba(200,210,255,0.95), transparent),
+    radial-gradient(2px 2px at 45% 12%, rgba(230,230,255,0.85), transparent),
+    radial-gradient(1.5px 1.5px at 78% 28%, rgba(210,215,255,0.8), transparent),
+    radial-gradient(2px 2px at 15% 55%, rgba(220,220,255,0.9), transparent),
+    radial-gradient(2.5px 2.5px at 60% 42%, rgba(200,210,255,0.85), transparent),
+    radial-gradient(1.5px 1.5px at 35% 70%, rgba(230,230,255,0.75), transparent),
+    radial-gradient(2px 2px at 88% 65%, rgba(210,220,255,0.9), transparent),
+    /* Medium stars */
+    radial-gradient(1px 1px at 22% 40%, rgba(200,210,255,0.7), transparent),
+    radial-gradient(1px 1px at 55% 25%, rgba(200,210,255,0.65), transparent),
+    radial-gradient(1.5px 1.5px at 70% 50%, rgba(210,215,255,0.7), transparent),
+    radial-gradient(1px 1px at 40% 85%, rgba(200,210,255,0.6), transparent),
+    radial-gradient(1px 1px at 95% 35%, rgba(220,225,255,0.7), transparent),
+    radial-gradient(1.5px 1.5px at 10% 75%, rgba(200,210,255,0.65), transparent),
+    radial-gradient(1px 1px at 82% 88%, rgba(210,210,255,0.6), transparent),
+    radial-gradient(1px 1px at 30% 95%, rgba(200,210,255,0.5), transparent),
+    /* Small faint stars */
+    radial-gradient(0.8px 0.8px at 18% 22%, rgba(180,190,255,0.5), transparent),
+    radial-gradient(0.8px 0.8px at 65% 18%, rgba(180,190,255,0.45), transparent),
+    radial-gradient(0.8px 0.8px at 48% 58%, rgba(180,190,255,0.4), transparent),
+    radial-gradient(0.8px 0.8px at 85% 45%, rgba(180,190,255,0.5), transparent),
+    radial-gradient(0.8px 0.8px at 5% 90%, rgba(180,190,255,0.4), transparent),
+    radial-gradient(0.8px 0.8px at 72% 78%, rgba(180,190,255,0.45), transparent),
+    radial-gradient(0.8px 0.8px at 38% 35%, rgba(180,190,255,0.4), transparent),
+    radial-gradient(0.8px 0.8px at 52% 92%, rgba(180,190,255,0.35), transparent);
+  background-color: var(--page-bg);
+}
+
+/* Twinkling star animation for dark mode dots */
+html[data-theme="dark"] .dot {
+  animation: starTwinkle 3s ease-in-out infinite;
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.5; box-shadow: 0 0 4px 1px rgba(139,155,255,0.3); }
+  50% { opacity: 1; box-shadow: 0 0 8px 3px rgba(139,155,255,0.6); }
+}
+
+/* Custom AOS animations for more variety */
+[data-aos="slide-up-fade"] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition-property: opacity, transform;
+}
+[data-aos="slide-up-fade"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-aos="scale-fade"] {
+  opacity: 0;
+  transform: scale(0.92);
+  transition-property: opacity, transform;
+}
+[data-aos="scale-fade"].aos-animate {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Smooth section reveal with soft glow on scroll */
+#post-grid {
+  position: relative;
+}
+
+#post-grid::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--aj-lav), transparent);
+  border-radius: 2px;
+  opacity: 0.6;
+}
+
+/* Smooth theme transition */
+body,
+#billboard.aurora-split-hero,
+#billboard.aurora-split-hero .aj-card,
+#billboard.aurora-split-hero .aj-card-head,
+#billboard.aurora-split-hero .aj-mini-nav a,
+.aj-modal,
+.aj-modal-header,
+.aj-modal-body,
+.gallery-modal-content,
+.gallery-modal-header,
+#overlayer,
+.whimsical-divider,
+#post-grid,
+#footer,
+#footer-bottom,
+.dot,
+.site-logo,
+h1, h2, h3, h4, h5, h6,
+p, span, a {
+  transition: background-color 0.5s ease,
+              color 0.4s ease,
+              border-color 0.4s ease,
+              box-shadow 0.4s ease;
+}
+
+/* Theme toggle active state */
+.theme-toggle-btn.theme-active {
+  background: rgba(160,172,255,0.2);
+  border-radius: 8px;
+  padding: 4px 10px !important;
+}
+
+html[data-theme="dark"] .theme-toggle-btn.theme-active {
+  background: rgba(123,140,255,0.3);
+}
+
+/* ---- Dark mode element overrides ---- */
+html[data-theme="dark"] #overlayer {
+  background: var(--overlay-bg);
+}
+
+html[data-theme="dark"] .site-logo {
+  color: var(--site-logo-color) !important;
+}
+
+html[data-theme="dark"] #billboard.aurora-split-hero {
+  background: var(--hero-bg) !important;
+}
+
+html[data-theme="dark"] #billboard.aurora-split-hero .aj-card {
+  background: var(--card-bg);
+  box-shadow: 0 8px 32px rgba(60,60,140,0.25), inset 0 1px 0 rgba(139,155,255,0.1);
+}
+
+html[data-theme="dark"] #billboard.aurora-split-hero .aj-card-head {
+  background:
+    radial-gradient(circle at 20% 30%, rgba(100,120,255,0.2), transparent 50%),
+    radial-gradient(circle at 80% 10%, rgba(100,120,255,0.15), transparent 45%),
+    linear-gradient(180deg, #1e2050 0%, #252565 100%);
+}
+
+html[data-theme="dark"] #billboard.aurora-split-hero .aj-card-head::after {
+  background-image: repeating-linear-gradient(115deg, rgba(120,140,220,0.08) 0 1px, transparent 1px 18px);
+}
+
+html[data-theme="dark"] #billboard.aurora-split-hero .aj-mini-nav a {
+  color: #c8d0ff;
+}
+
+html[data-theme="dark"] #billboard.aurora-split-hero .aj-mini-btn {
+  background: var(--aj-lav);
+}
+
+html[data-theme="dark"] #billboard.aurora-split-hero .aj-cloud {
+  background: #252565;
+  color: #c8d0ff;
+  box-shadow: 0 4px 16px rgba(60,60,140,0.3);
+}
+
+html[data-theme="dark"] #billboard.aurora-split-hero .aj-left {
+  background: transparent;
+}
+
+html[data-theme="dark"] #billboard.aurora-split-hero .aj-title {
+  color: var(--heading-color);
+}
+
+html[data-theme="dark"] .aj-bio-text p,
+html[data-theme="dark"] .aj-bio-text {
+  color: var(--body-text-color);
+}
+
+html[data-theme="dark"] .aj-bio-text strong {
+  color: #a0b0ff;
+}
+
+html[data-theme="dark"] .aj-tile {
+  background: #252565;
+  color: #d0d8ff;
+  border-color: rgba(139,155,255,0.25);
+  box-shadow: 0 2px 8px rgba(40,40,100,0.3);
+}
+
+html[data-theme="dark"] .aj-modal {
+  background: var(--card-bg-alt);
+  border-color: var(--border-color);
+}
+
+html[data-theme="dark"] .aj-modal-header {
+  background: #1e2055;
+  color: #e0e0ff;
+}
+
+html[data-theme="dark"] .aj-modal-body {
+  background: var(--card-bg-alt);
+  color: var(--body-text-color);
+}
+
+html[data-theme="dark"] .gallery-modal-content {
+  background: var(--card-bg);
+}
+
+html[data-theme="dark"] .gallery-modal-header {
+  background: var(--card-bg);
+  border-bottom-color: var(--border-color);
+}
+
+html[data-theme="dark"] .gallery-modal-header h2 {
+  color: var(--heading-color);
+}
+
+html[data-theme="dark"] #post-grid {
+  background: transparent;
+}
+
+html[data-theme="dark"] #post-grid .section-header .text-black-50 {
+  color: var(--featured-subtitle-color) !important;
+}
+
+html[data-theme="dark"] .dot {
+  background-color: var(--dot-color);
+}
+
+html[data-theme="dark"] .hint-text {
+  color: #8890a8;
+}
+
+html[data-theme="dark"] #footer {
+  background-color: #1e2050 !important;
+}
+
+html[data-theme="dark"] #footer-bottom {
+  background-color: #1a1c48 !important;
+}
+
+html[data-theme="dark"] .menu-btn > span,
+html[data-theme="dark"] .menu-btn > span::before,
+html[data-theme="dark"] .menu-btn > span::after {
+  background-color: #c8d0ff;
+}
+
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5,
+html[data-theme="dark"] h6 {
+  color: var(--heading-color);
+}
+
+html[data-theme="dark"] .nav-overlay .nav__content {
+  background: var(--card-bg);
+}
+
+html[data-theme="dark"] .nav-overlay .nav__list-item a {
+  color: #c8d0ff;
+}
+
+html[data-theme="dark"] .aj-slab {
+  background: rgba(123,140,255,0.3);
+}
+
+html[data-theme="dark"] .aj-rail {
+  background: rgba(123,140,255,0.15);
+}
+
+html[data-theme="dark"] .aj-thumb {
+  background: var(--aj-lav);
 }
 
 /* Fonts */
@@ -59,6 +388,7 @@ body {
   font-size: 16px;
   line-height: 1.8;
   color: var(--body-text-color);
+  background-color: var(--page-bg);
 }
 
 a {
@@ -1198,57 +1528,49 @@ body.nav-active .nav__list-item:nth-child(10) {
 }
 
 
-/*----- 6.8 Post Grid Section
+/*----- 6.8 Post Grid Section (Swiper Carousel)
 --------------------------------------------------------------*/
-#post-grid .row {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 15px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-}
-
-#post-grid .row > div {
-  flex: 0 0 calc(33.333% - 10px);
-  min-width: 300px;
-  max-width: calc(33.333% - 10px);
+#post-grid .featured-carousel .swiper-slide {
+  height: auto;
 }
 
 #post-grid .post-item {
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  margin-bottom: 40px;
+  margin-bottom: 0;
+  border-radius: 16px;
 }
 
 #post-grid .post-item img {
   width: 100%;
-  aspect-ratio: 1 / 1.5;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   display: block;
+  border-radius: 16px;
 }
 
-#post-grid .post-item:last-child {
-  margin-right: 0;
+#post-grid a.post-link {
+  display: block;
+  position: relative;
 }
 
 #post-grid a.post-link:before {
   content: '';
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
   width: 100%;
   height: 50%;
   position: absolute;
   top: 50%;
   left: 0;
   z-index: 1;
-  transition-duration: 0.8s;
+  transition: all 0.5s ease;
+  border-radius: 16px;
 }
 
 #post-grid .post-item:hover a.post-link:before {
   height: 100%;
   top: 0;
-  transition-property: top, opacity;
 }
 
 #post-grid .post-item figcaption {
@@ -1258,13 +1580,128 @@ body.nav-active .nav__list-item:nth-child(10) {
   z-index: 2;
   width: 100%;
   color: #fff;
-  padding: 0 35px;
+  padding: 0 24px 16px;
+}
+
+#post-grid .post-item .meta-wrap {
+  font-size: 12px;
+  opacity: 0.85;
 }
 
 #post-grid .post-item h3 {
-  font-size: 1.5em;
-  line-height: 1.5;
+  font-size: 1.1em;
+  line-height: 1.4;
   font-weight: 700;
+  margin: 4px 0 0;
+}
+
+#post-grid .post-item h3 a {
+  font-size: 0.95em;
+}
+
+/* Project hover overlay with description */
+#post-grid .project-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: rgba(15, 15, 35, 0.92);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+#post-grid .post-item:hover .project-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#post-grid .project-overlay .overlay-title {
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: 800;
+  margin: 0 0 8px;
+  font-family: var(--heading-font);
+}
+
+#post-grid .project-overlay .overlay-desc {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.85em;
+  line-height: 1.5;
+  margin: 0 0 16px;
+  max-width: 260px;
+}
+
+#post-grid .project-overlay .overlay-btn {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 10px;
+  background: var(--aj-lav);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85em;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+  margin: 4px;
+}
+
+#post-grid .project-overlay .overlay-btn:hover {
+  background: var(--aj-lav2);
+  transform: scale(1.05);
+}
+
+/* Featured projects nav buttons */
+#post-grid .featured-nav {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+#post-grid .featured-carousel-prev,
+#post-grid .featured-carousel-next {
+  border: 2px solid var(--body-text-color);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--body-text-color);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  font-size: 18px;
+  user-select: none;
+}
+
+#post-grid .featured-carousel-prev:hover,
+#post-grid .featured-carousel-next:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+#post-grid .featured-pagination {
+  margin-top: 24px;
+  text-align: center;
+}
+
+#post-grid .featured-pagination .swiper-pagination-bullet-active {
+  background-color: var(--accent-color);
+}
+
+/* Project card placeholder gradient (when image missing) */
+.post-item-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1.5;
+  display: block;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--aj-lav), var(--aj-lav2));
 }
 
 /* Make the Featured Projects section heading use the purple accent color */

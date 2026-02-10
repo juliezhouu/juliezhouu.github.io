@@ -228,11 +228,12 @@
 
 		.description-card {
 			background: #ffffff;
-			padding: 30px;
+			padding: 28px 28px 28px 32px;
 			border-radius: 12px;
 			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 			transition: all 0.3s ease;
 			animation: scaleIn 0.6s ease-out backwards;
+			border-left: 4px solid var(--aj-lav, #a0acff);
 		}
 
 		.description-card:nth-child(1) { animation-delay: 0.1s; }
@@ -243,19 +244,9 @@
 		.description-card:nth-child(6) { animation-delay: 0.6s; }
 
 		.description-card:hover {
-			transform: translateY(-8px) scale(1.02);
-			box-shadow: 0 12px 35px rgba(124, 58, 237, 0.15);
-		}
-
-		.card-icon {
-			font-size: 2rem;
-			margin-bottom: 15px;
-			display: inline-block;
-			transition: transform 0.3s ease;
-		}
-
-		.description-card:hover .card-icon {
-			animation: float 2s ease-in-out infinite;
+			transform: translateY(-4px);
+			box-shadow: 0 8px 25px rgba(160, 172, 255, 0.2);
+			border-left-color: #7C3AED;
 		}
 
 		.card-title {
@@ -432,7 +423,7 @@
 				
 				<div class="project-title">
 					<h1>PosturePal</h1>
-					<p class="project-subtitle">An AI-powered posture monitoring application that helps users maintain healthy body alignment during computer work through real-time pose detection and feedback.</p>
+					<p class="project-subtitle">A posture monitoring app that watches your webcam and gives you a little nudge when you start slouching. Built with Python, MediaPipe, and OpenCV.</p>
 					<a href="https://github.com/juliezhouu/posturepal_.git" target="_blank" rel="noopener noreferrer" class="github-btn">
 						<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
 							<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
@@ -476,81 +467,69 @@
 
 			<!-- Project Description -->
 			<div class="project-description">
-				<h2 class="section-title">Project Overview</h2>
+				<h2 class="section-title">What it does</h2>
 				<div class="description-grid">
 					<div class="description-card">
-						<div class="card-icon">🧍</div>
-						<h3 class="card-title">Real-Time Pose Detection</h3>
-						<p class="card-text">Advanced computer vision algorithms that continuously monitor body alignment and detect posture deviations in real-time using your webcam.</p>
+						<h3 class="card-title">Watches your posture</h3>
+						<p class="card-text">Uses your webcam to track your body position in real time. It picks up on things like slouching, leaning forward, or hunching your shoulders while you work.</p>
 					</div>
 					<div class="description-card">
-						<div class="card-icon">💡</div>
-						<h3 class="card-title">Smart Feedback System</h3>
-						<p class="card-text">Intelligent alerts and visual cues that guide you toward better posture without being intrusive to your workflow.</p>
+						<h3 class="card-title">Gentle reminders</h3>
+						<p class="card-text">When it notices you've been in a bad position for a while, it gives you a heads up. Nothing aggressive, just a little visual cue so you can fix it before your back starts hurting.</p>
 					</div>
 					<div class="description-card">
-						<div class="card-icon">📊</div>
-						<h3 class="card-title">Health Analytics</h3>
-						<p class="card-text">Track your posture patterns over time with detailed analytics to understand your habits and monitor improvements.</p>
+						<h3 class="card-title">Tracks your habits</h3>
+						<p class="card-text">Keeps a log of how you've been sitting throughout the day so you can see patterns. Turns out I slouch way more after lunch.</p>
 					</div>
 				</div>
 			</div>
 
 			<!-- Technical Features -->
 			<div class="project-description" style="margin-top: 60px;">
-				<h2 class="section-title">Technical Highlights</h2>
+				<h2 class="section-title">How I built it</h2>
 				<div class="description-grid">
 					<div class="description-card">
-						<div class="card-icon">🤖</div>
-						<h3 class="card-title">AI Pose Estimation</h3>
-						<p class="card-text">Leveraging MediaPipe's state-of-the-art machine learning models to accurately track 33 body landmarks and analyze skeletal structure in real-time.</p>
+						<h3 class="card-title">Pose detection with MediaPipe</h3>
+						<p class="card-text">MediaPipe tracks 33 points on your body from the webcam feed. I use those landmarks to figure out where your head, shoulders, and spine are relative to each other.</p>
 					</div>
 					<div class="description-card">
-						<div class="card-icon">📐</div>
-						<h3 class="card-title">Angle Analysis</h3>
-						<p class="card-text">Mathematical algorithms calculate critical angles between body joints to detect slouching, forward head posture, and shoulder misalignment with precision.</p>
+						<h3 class="card-title">Angle math</h3>
+						<p class="card-text">The app calculates angles between your joints to determine if you're slouching. For example, if the angle between your ear, shoulder, and hip drops below a threshold, that's a slouch.</p>
 					</div>
 					<div class="description-card">
-						<div class="card-icon">🎥</div>
-						<h3 class="card-title">Computer Vision Pipeline</h3>
-						<p class="card-text">Optimized OpenCV processing pipeline with efficient frame capture, preprocessing, and rendering to maintain smooth performance on standard hardware.</p>
+						<h3 class="card-title">OpenCV for video processing</h3>
+						<p class="card-text">OpenCV handles the webcam feed, frame processing, and drawing the skeleton overlay. I optimized the pipeline to keep things smooth without eating up your CPU.</p>
 					</div>
 					<div class="description-card">
-						<div class="card-icon">⚙️</div>
-						<h3 class="card-title">Customizable Thresholds</h3>
-						<p class="card-text">Adjustable sensitivity settings allow users to personalize the detection parameters based on their individual body type and comfort preferences.</p>
+						<h3 class="card-title">Adjustable sensitivity</h3>
+						<p class="card-text">Everyone sits differently, so you can tweak how sensitive the detection is. Some people naturally lean forward and that's fine, the app adapts to you.</p>
 					</div>
 					<div class="description-card">
-						<div class="card-icon">🔔</div>
-						<h3 class="card-title">Notification System</h3>
-						<p class="card-text">Multi-modal alert system with visual overlays, desktop notifications, and optional audio cues to remind users about posture corrections.</p>
+						<h3 class="card-title">Notifications that aren't annoying</h3>
+						<p class="card-text">You get a visual overlay on screen and an optional desktop notification. I specifically made sure it doesn't interrupt you every five seconds. It waits until you've actually been slouching for a bit.</p>
 					</div>
 					<div class="description-card">
-						<div class="card-icon">💾</div>
-						<h3 class="card-title">Data Persistence</h3>
-						<p class="card-text">Session tracking and historical data storage enabling longitudinal analysis of posture habits and health trends over days and weeks.</p>
+						<h3 class="card-title">Session history</h3>
+						<p class="card-text">Your posture data gets saved between sessions so you can look back and see if you're actually improving over time. Spoiler: it's motivating when you do.</p>
 					</div>
 				</div>
 			</div>
 
 			<!-- Challenges & Solutions -->
 			<div class="project-description" style="margin-top: 60px;">
-				<h2 class="section-title">Development Challenges</h2>
+				<h2 class="section-title">Things I had to figure out</h2>
 				<div class="description-grid">
 					<div class="description-card">
-						<div class="card-icon">⚠️</div>
-						<h3 class="card-title">False Alert Management</h3>
-						<p class="card-text">Initial detection system triggered excessive false positives when users made natural movements or leaned forward intentionally. Implemented a time-based threshold system with consecutive frame validation to distinguish between momentary position changes and sustained poor posture.</p>
+						<h3 class="card-title">Too many false alerts</h3>
+						<p class="card-text">At first it would yell at you every time you reached for your coffee. I added a time-based check so it only flags you if you've been in a bad position for several seconds in a row, not just a quick lean.</p>
 					</div>
 					<div class="description-card">
-						<div class="card-icon">🔍</div>
-						<h3 class="card-title">Lighting Variability</h3>
-						<p class="card-text">Pose detection accuracy degraded significantly in low-light or backlit conditions. Developed adaptive preprocessing filters and confidence score thresholds that adjust based on ambient lighting conditions to maintain reliable tracking.</p>
+						<h3 class="card-title">Bad lighting messes things up</h3>
+						<p class="card-text">The pose detection got really flaky in dim rooms or when there was a bright window behind you. I added some preprocessing filters and confidence thresholds to handle these situations better.</p>
 					</div>
 					<div class="description-card">
-						<div class="card-icon">⚡</div>
-						<h3 class="card-title">Performance Optimization</h3>
-						<p class="card-text">Early versions experienced frame rate drops on lower-end hardware. Resolved through strategic frame skipping, model complexity reduction, and implementing efficient caching mechanisms to maintain 30 FPS on standard laptops.</p>
+						<h3 class="card-title">Making it run smoothly</h3>
+						<p class="card-text">The early version was pretty laggy on my laptop. I fixed it by skipping some frames, reducing the model complexity, and caching results. Now it runs at a solid 30 FPS without turning your computer into a space heater.</p>
 					</div>
 				</div>
 			</div>

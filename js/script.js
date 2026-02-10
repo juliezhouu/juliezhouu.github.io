@@ -117,6 +117,35 @@
 				},
 			},
 		});
+
+		// Featured projects carousel
+		var featured_swiper = new Swiper(".featured-carousel", {
+			slidesPerView: 3,
+			spaceBetween: 20,
+			loop: true,
+			navigation: {
+				nextEl: ".featured-carousel-next",
+				prevEl: ".featured-carousel-prev",
+			},
+			pagination: {
+				el: ".featured-pagination",
+				clickable: true,
+			},
+			breakpoints: {
+				0: {
+					slidesPerView: 1,
+					spaceBetween: 15,
+				},
+				600: {
+					slidesPerView: 2,
+					spaceBetween: 15,
+				},
+				992: {
+					slidesPerView: 3,
+					spaceBetween: 20,
+				},
+			},
+		});
 	}
 
 function initIsotope() {
@@ -198,7 +227,7 @@ function initIsotope() {
 					if (idx === 0) {
 						content = '<p>i\'ve been drawing since I was 5 years old and i do commission work too!</p><p>i love drawing cute things and bringing people\'s ideas to life :)</p>';
 					} else if (idx === 1) {
-						content = '<p>Need to update this section</p>';
+						content = '<p>Check out my featured section below!</p>';
 					} else {
 					content = `
 						<div style="max-height: 60vh; overflow-y: auto; padding-right: 8px;">
@@ -248,9 +277,10 @@ $(document).ready(function () {
 	overlayMenu();
 
 	AOS.init({
-		duration: 1500,
+		duration: 1000,
 		once: true,
-		offset: 20
+		offset: 50,
+		easing: 'ease-out-cubic'
 	});
 
 	// Prevent browser from restoring previous scroll position on navigation
@@ -260,9 +290,12 @@ $(document).ready(function () {
 		}
 	} catch (e) { /* ignore in older browsers */ }
 
+	// Initialize Swiper carousels on DOM ready
+	initSwiper();
+
 	// Initialize isotope after all images are loaded
 	$(window).on('load', function() {
-			
+
 			// Fade out preloader
             $("#overlayer").fadeOut("slow");
             $('body').addClass('loaded');
@@ -360,7 +393,7 @@ $(document).ready(function () {
   		  i love drawing cute things and bringing people’s ideas to life :)
  		 </p>`;
 }
-					else if (idx === 1) content = '<p>I need to update this section!</p>';
+					else if (idx === 1) content = '<p>Check out my featured projects section!</p>';
 				else content = `
 					<div style="max-height: 60vh; overflow-y: auto; padding-right: 12px; line-height: 1.6;">
 						<h3 style="margin-top: 0; margin-bottom: 24px; color: #8b5cf6; font-size: 24px; border-bottom: 2px solid #8b5cf6; padding-bottom: 8px;">Frequently Asked Questions</h3>
@@ -481,6 +514,267 @@ $(document).ready(function () {
 				btn.addEventListener('click', function(e){ e.preventDefault(); openContactModal(); });
 			});
 		})();
+
+	/* ========== Theme Toggle (Light/Dark) ========== */
+	(function() {
+		var STORAGE_KEY = 'julie-theme';
+		var html = document.documentElement;
+
+		// Restore saved theme
+		var saved = localStorage.getItem(STORAGE_KEY);
+		if (saved === 'dark') {
+			html.setAttribute('data-theme', 'dark');
+		} else {
+			html.removeAttribute('data-theme');
+		}
+
+		function updateActiveToggle() {
+			var current = html.getAttribute('data-theme') || 'light';
+			var lightBtn = document.getElementById('themeLight');
+			var darkBtn = document.getElementById('themeDark');
+			if (lightBtn) lightBtn.classList.toggle('theme-active', current === 'light');
+			if (darkBtn) darkBtn.classList.toggle('theme-active', current === 'dark');
+		}
+
+		function setTheme(mode) {
+			if (mode === 'dark') {
+				html.setAttribute('data-theme', 'dark');
+				localStorage.setItem(STORAGE_KEY, 'dark');
+			} else {
+				html.removeAttribute('data-theme');
+				localStorage.setItem(STORAGE_KEY, 'light');
+			}
+			updateActiveToggle();
+		}
+
+		var lightBtn = document.getElementById('themeLight');
+		var darkBtn = document.getElementById('themeDark');
+
+		if (lightBtn) {
+			lightBtn.addEventListener('click', function(e) {
+				e.preventDefault();
+				setTheme('light');
+			});
+		}
+		if (darkBtn) {
+			darkBtn.addEventListener('click', function(e) {
+				e.preventDefault();
+				setTheme('dark');
+			});
+		}
+
+		updateActiveToggle();
+	})();
+
+	/* ========== Meteor Shower Animation (Canvas) ========== */
+	(function() {
+		var meteorCanvas = null;
+		var meteorCtx = null;
+		var meteors = [];
+		var particles = [];
+		var animationId = null;
+		var running = false;
+		var spawnPending = false;
+
+		function createCanvas() {
+			meteorCanvas = document.createElement('canvas');
+			meteorCanvas.id = 'meteorCanvas';
+			meteorCanvas.style.cssText =
+				'position:fixed;top:0;left:0;width:100%;height:100%;z-index:99998;pointer-events:none;';
+			meteorCanvas.width = window.innerWidth;
+			meteorCanvas.height = window.innerHeight;
+			document.body.appendChild(meteorCanvas);
+			meteorCtx = meteorCanvas.getContext('2d');
+		}
+
+		function spawnMeteor() {
+			var startX = Math.random() * meteorCanvas.width * 0.6 + meteorCanvas.width * 0.4;
+			var startY = -50;
+			var speed = 8 + Math.random() * 6;
+			var angle = Math.PI * (0.55 + Math.random() * 0.2);
+
+			return {
+				x: startX,
+				y: startY,
+				vx: Math.cos(angle) * speed,
+				vy: Math.sin(angle) * speed,
+				length: 80 + Math.random() * 120,
+				width: 1.5 + Math.random() * 2,
+				opacity: 0.8 + Math.random() * 0.2,
+				hue: 220 + Math.random() * 40,
+				alive: true,
+				exploded: false,
+				explodeY: meteorCanvas.height * (0.4 + Math.random() * 0.35)
+			};
+		}
+
+		function spawnExplosion(x, y, hue) {
+			var count = 25 + Math.floor(Math.random() * 15);
+			for (var i = 0; i < count; i++) {
+				var a = Math.random() * Math.PI * 2;
+				var spd = 2 + Math.random() * 6;
+				particles.push({
+					x: x, y: y,
+					vx: Math.cos(a) * spd,
+					vy: Math.sin(a) * spd,
+					radius: 1 + Math.random() * 3,
+					opacity: 1,
+					hue: hue + Math.random() * 30 - 15,
+					decay: 0.012 + Math.random() * 0.018
+				});
+			}
+			// Add sparkle ring
+			for (var j = 0; j < 12; j++) {
+				var ra = (Math.PI * 2 / 12) * j;
+				particles.push({
+					x: x, y: y,
+					vx: Math.cos(ra) * 8,
+					vy: Math.sin(ra) * 8,
+					radius: 0.8,
+					opacity: 1,
+					hue: hue + 40,
+					decay: 0.03
+				});
+			}
+		}
+
+		function update() {
+			meteorCtx.clearRect(0, 0, meteorCanvas.width, meteorCanvas.height);
+
+			// Draw meteors
+			for (var i = meteors.length - 1; i >= 0; i--) {
+				var m = meteors[i];
+				m.x += m.vx;
+				m.y += m.vy;
+
+				// Draw trail
+				var tailX = m.x - m.vx * (m.length / 10);
+				var tailY = m.y - m.vy * (m.length / 10);
+				var gradient = meteorCtx.createLinearGradient(m.x, m.y, tailX, tailY);
+				gradient.addColorStop(0, 'hsla(' + m.hue + ', 80%, 85%, ' + m.opacity + ')');
+				gradient.addColorStop(0.3, 'hsla(' + m.hue + ', 70%, 65%, ' + (m.opacity * 0.6) + ')');
+				gradient.addColorStop(1, 'hsla(' + m.hue + ', 60%, 40%, 0)');
+
+				meteorCtx.save();
+				meteorCtx.strokeStyle = gradient;
+				meteorCtx.lineWidth = m.width;
+				meteorCtx.lineCap = 'round';
+				meteorCtx.beginPath();
+				meteorCtx.moveTo(m.x, m.y);
+				meteorCtx.lineTo(tailX, tailY);
+				meteorCtx.stroke();
+
+				// Bright head glow
+				meteorCtx.beginPath();
+				meteorCtx.arc(m.x, m.y, m.width * 3, 0, Math.PI * 2);
+				var headGlow = meteorCtx.createRadialGradient(m.x, m.y, 0, m.x, m.y, m.width * 3);
+				headGlow.addColorStop(0, 'hsla(' + m.hue + ', 90%, 95%, ' + (m.opacity * 0.8) + ')');
+				headGlow.addColorStop(1, 'hsla(' + m.hue + ', 80%, 70%, 0)');
+				meteorCtx.fillStyle = headGlow;
+				meteorCtx.fill();
+				meteorCtx.restore();
+
+				// Explode check
+				if (!m.exploded && m.y > m.explodeY) {
+					m.exploded = true;
+					spawnExplosion(m.x, m.y, m.hue);
+					m.alive = false;
+				}
+
+				if (m.y > meteorCanvas.height + 100 || m.x < -100) {
+					m.alive = false;
+				}
+
+				if (!m.alive) meteors.splice(i, 1);
+			}
+
+			// Draw particles
+			for (var j = particles.length - 1; j >= 0; j--) {
+				var p = particles[j];
+				p.x += p.vx;
+				p.y += p.vy;
+				p.vy += 0.06; // gravity
+				p.vx *= 0.99; // drag
+				p.opacity -= p.decay;
+
+				if (p.opacity <= 0) {
+					particles.splice(j, 1);
+					continue;
+				}
+
+				meteorCtx.beginPath();
+				meteorCtx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+				meteorCtx.fillStyle = 'hsla(' + p.hue + ', 80%, 70%, ' + p.opacity + ')';
+				meteorCtx.fill();
+
+				// Soft glow on larger particles
+				if (p.radius > 2) {
+					meteorCtx.beginPath();
+					meteorCtx.arc(p.x, p.y, p.radius * 2.5, 0, Math.PI * 2);
+					meteorCtx.fillStyle = 'hsla(' + p.hue + ', 70%, 60%, ' + (p.opacity * 0.15) + ')';
+					meteorCtx.fill();
+				}
+			}
+
+			// Keep looping while there are active elements or the shower is still spawning
+			if (running) {
+				animationId = requestAnimationFrame(update);
+			}
+			// Clean up when everything is done
+			if (meteors.length === 0 && particles.length === 0 && !spawnPending) {
+				running = false;
+				if (animationId) cancelAnimationFrame(animationId);
+				setTimeout(function() {
+					if (meteorCanvas && meteorCanvas.parentNode) {
+						meteorCanvas.parentNode.removeChild(meteorCanvas);
+						meteorCanvas = null;
+						meteorCtx = null;
+					}
+				}, 300);
+			}
+		}
+
+		function triggerMeteorShower() {
+			if (running) return;
+			running = true;
+			meteors = [];
+			particles = [];
+			createCanvas();
+
+			// Spawn first meteor immediately so the animation loop has something to draw
+			meteors.push(spawnMeteor());
+			spawnPending = true;
+
+			var count = 5 + Math.floor(Math.random() * 5);
+			var spawned = 0;
+			for (var i = 1; i <= count; i++) {
+				(function(delay) {
+					setTimeout(function() {
+						if (meteorCanvas && running) meteors.push(spawnMeteor());
+						spawned++;
+						if (spawned >= count) spawnPending = false;
+					}, delay);
+				})(i * 250 + Math.random() * 200);
+			}
+
+			animationId = requestAnimationFrame(update);
+		}
+
+		var btn = document.getElementById('meteorBtn');
+		if (btn) {
+			btn.addEventListener('click', function(e) {
+				e.preventDefault();
+				triggerMeteorShower();
+			});
+		}
+
+		window.addEventListener('resize', function() {
+			if (meteorCanvas) {
+				meteorCanvas.width = window.innerWidth;
+				meteorCanvas.height = window.innerHeight;
+			}
+		});
+	})();
 });
 
 })(jQuery);
@@ -511,12 +805,16 @@ document.addEventListener('click', function(e) {
 		return;
 	}
 	
-	// Check if click is within the biography card or footer
+	// Check if click is within the biography card, footer, mini-nav, or carousel controls
 	const ajCard = e.target.closest('.aj-card');
 	const footer = e.target.closest('#footer');
 	const footerBottom = e.target.closest('#footer-bottom');
-	
-	if (ajCard || footer || footerBottom) {
+	const miniNav = e.target.closest('.aj-mini-nav');
+	const swiperNav = e.target.closest('.featured-carousel-prev, .featured-carousel-next, .featured-pagination');
+	const overlay = e.target.closest('.project-overlay');
+	const overlayBtn = e.target.closest('.overlay-btn');
+
+	if (ajCard || footer || footerBottom || miniNav || swiperNav || overlay || overlayBtn) {
 		return; // Don't show effect in these areas
 	}
 	
