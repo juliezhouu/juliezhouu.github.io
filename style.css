@@ -2993,7 +2993,7 @@ button.filter-button:hover {
 .faq-block { border-left: 3px solid #e9d5ff; }
 
 /* Featured subtitle (replaces .text-black-50) */
-.featured-subtitle { color: rgba(0,0,0,0.5); }
+.featured-subtitle { color: rgba(0,0,0,0.5); display: block; margin-top: 12px; }
 
 /* Contact form inside modal */
 .aj-contact-form label { display:block; text-align:left; margin-bottom:6px; font-weight:600; }
