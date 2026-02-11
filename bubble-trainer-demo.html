@@ -525,7 +525,7 @@
 			<div class="video-section">
 				<h2 class="section-title">Demo Video</h2>
 				<div class="video-wrapper">
-					<video id="demoVideo" autoplay loop playsinline preload="auto">
+					<video id="demoVideo" controls loop playsinline preload="auto">
 						<source src="images/video1.mp4" type="video/mp4">
 						Your browser does not support the video tag.
 					</video>
@@ -594,21 +594,6 @@
 	<script>
 		// Disable click popup effect on this page
 		document.body.classList.add('no-click-effects');
-		
-		// Force video to play with volume
-		document.addEventListener('DOMContentLoaded', function() {
-			const video = document.getElementById('demoVideo');
-			if (video) {
-				// Try to play with sound first
-				video.muted = false;
-				video.play().catch(function(error) {
-					console.log("Autoplay with sound prevented, trying muted:", error);
-					// If autoplay with sound fails, mute and try again
-					video.muted = true;
-					video.play();
-				});
-			}
-		});
 	</script>
 </body>
 
